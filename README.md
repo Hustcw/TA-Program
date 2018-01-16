@@ -1,4 +1,4 @@
-# TA-Program
+# TA-Project
 USTC教学辅助平台
 
 ## 简介
