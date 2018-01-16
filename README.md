@@ -8,4 +8,4 @@ USTC教学辅助平台
 laravel、bootstrap、jQuery
 
 ## 博客地址
-http://www.cnblogs.com/ustc-rjgc2017/
+http://www.cnblogs.com/ustc-rjgc2017
