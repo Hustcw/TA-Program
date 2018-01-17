@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.logo
+{
+	display: block;
+	width: 100%;
+	height:auto;
+}
+
+a.btn
+{
+	background-color:#232323;
+	border:1px solid aliceblue;
+	font-family: Letter Gothic Std;
+	color:#484747;
+	font-size: 25px;
+}
+
+/*a.btn:hover
+{
+	color:#E35431;
+	background-color: #000000;
+}*/
+
+.Blank
+{
+  display:block;
+  width:90%;
+  height:40px;
+  background-color:#484747;
+  border-radius:10px;
+  color:#232323;
+  text-decoration:none;
+  text-align: center;
+  font-family:chinese1 ;
+  padding: 6px;
+  font-size: 20px;
+}
+
+.menu
+{
+	background-color:#000000;
+    position:fixed;
+	height:50px;
+	width:100%;
+	z-index:1;
+}
+.menu>p
+{
+	color:#FEFEFD;
+	padding: 13px;
+	font-family:"思源黑体 CN";
+	font-size:17px;
+}

@@ -1,0 +1,207 @@
+body{
+  background-color: #F0F0F0;
+	font-family: chinese2;
+}
+     
+#toper {
+  background-color:black;
+  color:white;
+  padding:5px;
+  font-family:"Microsoft YaHei" 
+}
+
+#header {
+  color:black;
+  text-align:center;
+  padding:5px;
+} 
+   
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  font-family:"Microsoft YaHei" 
+  }
+
+li {
+  float: right;
+  }
+
+li a {
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #222;
+}
+
+.gray{
+  color:gray;
+}
+         
+.orange{
+  color: orange;
+}
+		      
+       
+
+       
+img{
+  margin:10px;
+  padding:20px;
+}
+
+.center{
+  float: center;
+  position: center;
+  text-align: center;
+}
+
+.btn{
+font-size:19px;
+font-family: chinese2;
+}
+
+.btn-lg{
+  padding-top: 10px; 
+  padding-left:40px;
+  padding-right:40px;
+  padding-bottom: 10px; 
+}
+
+.black-board {
+	background-color: black;
+	height: 40px;
+	width: 100%;
+	margin-top:40px;
+}
+
+#textchange p
+{
+	font-size:15px;
+	color:#DDDDDD;
+}
+
+img
+{
+    transition: box-shadow 0.5s;
+    -webkit-transition: box-shadow 0.5s; /* Safari */
+}
+
+img:hover
+{
+	box-shadow:180px 180px rgba(49,54,61,1.00) inset;
+}
+
+.name
+{
+	background-color:rgba(49,54,61,1.00);
+	color:#FFFFFF;
+	padding:10px;
+	font-family:chinese2;
+	font-size:17px;
+	letter-spacing: 5px;
+}
+
+.signup
+{
+	font-size:16px;
+	height:280px;
+	padding-top:5px;
+	margin-top: 5px;
+}
+
+/*sun style*/
+.sun {
+  background-color:#F0F0F0 ;
+  min-height: 500px;
+  padding-top:20px;
+}
+
+#container {
+  height: 400px;
+  left: calc(50% - 200px);
+  position: relative;
+  top: calc(30% - 200px);
+  width: 400px;
+}
+#container #sun {
+  background-color: orange;
+  border-radius: 50%;
+	
+  -webkit-box-shadow: 0 0 30px #FDF731;
+          box-shadow: 0 0 30px #FDF731;
+  height: 100px;
+  left: 150px;
+  position: absolute;
+  top: 150px;
+  width: 100px;
+}
+#container .orbit {
+  border: solid;
+  border-color:#3E3D3D transparent transparent transparent;
+  border-radius: 50%;
+  border-width: 1px 1px 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+#container .orbit#earth-orbit {
+  -webkit-animation: orbit 36.5s linear infinite;
+          animation: orbit 36.5s linear infinite;
+  height: 300px;
+  left: 50px;
+  top: 50px;
+  width: 300px;
+}
+#container .orbit#moon-orbit {
+  -webkit-animation: orbit 2.7s linear infinite;
+          animation: orbit 2.7s linear infinite;
+  height: 80px;
+  left: -25px;
+  top: -25px;
+  width: 80px;
+}
+#container .orbit .globe {
+  border-radius: 50%;
+  position: absolute;
+}
+#container .orbit .globe#earth {
+  background: aqua;
+  height: 30px;
+  right: 28px;
+  top: 28px;
+  width: 30px;
+}
+#container .orbit .globe#moon {
+  background: #3E3D3D;
+  height: 12px;
+  right: 2px;
+  top: 8px;
+  width: 12px;
+}
+
+@-webkit-keyframes orbit {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+

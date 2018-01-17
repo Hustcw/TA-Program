@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*侧导航栏*/
+	.nav1{width: 220px;height: 100%;background:#2F2D2E;transition: all .3s;}
+	.nav1 a{display: block;overflow: hidden;padding-left: 20px;line-height: 46px;max-height: 46px;color: #ABB1B7;transition: all .3s;}
+	.nav1 a span{margin-left: 30px;}
+	.nav-item1{position: relative;}
+	.nav-item1.nav-show1{border-bottom: none;}
+	.nav-item1 ul{display: none;background: rgba(0,0,0,.1);}
+	.nav-item1.nav-show1 ul{display: block;}
+	.nav-item1>a:before{content: "";position: absolute;left: 0px;width: 2px;height: 46px;background: #34A0CE;opacity:0;transition: all .3s;}
+	.nav1 .nav-icon1{font-size: 20px;position: absolute;margin-left:-1px;}
+	/* 此处修改导航图标 可自定义iconfont 替换*/
+	.icon_1::after{content:"\e611";}
+	.icon_2::after{content: "\e618";}
+	.icon_3::after{content: "\e68f";}
+	.icon_4::after{content: "\e61a";}
+	/*---------------------*/
+	.nav-more1{float:right;margin-right: 20px;font-size: 12px;transition: transform .3s;}
+	/* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
+	.nav-more1::after{content: "\e621";}
+	/*---------------------*/
+	.nav-show1 .nav-more1{transform:rotate(90deg);}
+	.nav-show1,.nav-item1>a:hover{color: #FFF;background:rgba(255,255,255,.1);}
+	.nav-show1>a:before,.nav-item1>a:hover:before{opacity:1;}
+	.nav-item1 li:hover a{color: #FFF;background:rgba(255,255,255,.1);}
+
+	/* nav-mini */
+	.nav-mini1.nav1{width: 60px;}
+	.nav-mini1.nav1 .nav-icon1{/* margin-left:-2px; */}
+	.nav-mini1.nav1 .nav-item1>a span{display: none;}
+	.nav-mini1.nav1 .nav-more1{margin-right: -20px;}
+	.nav-mini1.nav1 .nav-item1 ul{position: absolute;top:0px;left:60px;width: 180px;z-index: 99;background:#2F2D2E;overflow: hidden;}
+	.nav-mini1.nav1 .nav-item1:hover{background:rgba(255,255,255,.1);}
+	.nav-mini1.nav1 .nav-item1:hover .nav-item a{color:#FFF;}
+	.nav-mini1.nav1 .nav-item1:hover a:before{opacity:1;}
+	.nav-mini1.nav1 .nav-item1:hover ul{display: block;}

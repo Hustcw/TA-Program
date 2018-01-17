@@ -1,0 +1,107 @@
+body{
+  background-color: #F0F0F0;
+}
+     
+#toper {
+  background-color:black;
+  color:white;
+  padding:5px;
+  font-family:"Microsoft YaHei" 
+}
+
+#header {
+  color:black;
+  text-align:center;
+  padding:5px;
+} 
+   
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  font-family:"Microsoft YaHei" 
+  }
+
+li {
+  float: right;
+  }
+
+li a {
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #222;
+}
+
+.center{
+  float: center;
+  position: center;
+  text-align: center;
+}
+
+#about
+{
+  font-size:1.5em;
+  height:7em;
+  padding-top:52px;
+  border-style:solid;
+  border-width:2px;
+  border-color:   #A9A9A9 ;
+  color:   #A9A9A9  ;
+  text-align: center;
+}
+
+div.ex
+{
+font-size: 30px;
+word-break:break-all;
+word-wrap:break-word;
+}
+
+
+
+.Blank
+{
+  display:block;
+  height:50px;
+  background-color: #A9A9A9;
+  border:0px solid;
+  border-radius:10px;
+  color:#F5F5F5;
+  text-decoration:none;
+  text-align: center;
+  font-family:"Microsoft YaHei" ;
+  padding: 9px;
+  font-size: 20px;
+}
+
+ .Blank:hover
+ {
+  background-color: black;
+  text-decoration:none;
+  color:#F5F5F5;
+ }
+
+img.memeber
+{
+  padding:10px;
+  width:70%;
+}
+
+.orange{
+  color: orange;
+}
+
+.black-board {
+	background-color: black;
+	height: 50px;
+	width: 100%;
+	margin-top: 188px;
+}

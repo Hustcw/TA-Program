@@ -1,0 +1,65 @@
+@charset "UTF-8";
+.Homework
+{
+border-radius:8px;
+}
+
+#submit
+{
+	width:100%;
+}
+
+.title
+{
+	font-family:chinese1;
+	font-size:100%;
+}
+
+.item
+{
+	height:50px;
+	display: inline-block;
+	padding:10px;
+	border-bottom:2px solid #000000
+}
+
+.item>a
+{
+	color:#000000;
+	font-family:chinese2;
+	font-size:20px;
+}
+
+.search
+{
+	color:#f4ac83;
+	padding:10px;
+	font-size:20px;
+	list-style-type:none;
+}
+
+.search>span
+{
+color:#F3AC83;
+}
+
+.item>a:hover
+{
+	text-decoration: none;
+}
+
+#close
+{
+	color:#808080;
+}
+
+#close:hover
+{
+	color:#820406;
+}
+
+.hm-con
+{
+	padding-left:20px; 
+	padding-right:20px
+}
