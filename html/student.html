@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,  user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Welcome To Your TA</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/student.css" />
+    <link rel="stylesheet" type="text/css" href="css/chinese_font.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https:
+      //cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!--导航栏-->
+    
+   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" style="height:40px; "> 
+      <p class="navbar-text">&nbsp;&nbsp;&nbsp;PB15000135&nbsp;&nbsp;&nbsp;俞晨东
+        &nbsp; 
+      </p>
+   </nav>
+   
+   <div class="row" style="margin-top:50px;">
+       <div class="col-lg-2 col-md-3 col-sm-3">
+       <ul class="nav nav-pills nav-stacked navbar-inverse">
+       <li class="text-center" data-toggle="collapse" data-target="#demo1"><a href="#">你的课程</a></li>
+         <ul class="nav nav-pills nav-stacked navbar-inverse" id="demo1" style="margin-left:10%;margin-right:10%">
+               <ul class="nav nav-pills nav-stacked navbar-inverse">
+                    <li class="text-center"><a href="#">数据结构</a></li>
+                    <li class="text-center"><a href="#">线性电子线路</a></li>
+   					<li class="text-center"><a href="#">数字逻辑电路</a></li>
+      				<li class="text-center"><a href="#">C++程序设计</a></li>
+   					<li class="text-center"><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加课程</a></li>
+                    
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加课程</h4>
+            </div>
+            <div class="modal-body row" style="padding-left:10%; padding-right:10%;">
+               <form  role="form">
+                <div class="input-group">
+                <span class="input-group-addon">学号</span>
+                <input type="text" class="form-control" placeholder="PB15000135" disabled>
+                </div>
+                <br>
+                <div class="input-group">
+                <span class="input-group-addon">姓名</span>
+                <input type="text" class="form-control" placeholder="俞晨东" disabled>
+                </div>
+                <br>
+                <div class="input-group">
+                <span class="input-group-addon">添加课程号</span>
+                <input type="text" class="form-control" placeholder="#AS136954">
+                </div>
+                <br>
+              </form>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+                    
+   				</ul>
+    	  </ul>
+       <li class="text-center" data-toggle="collapse" data-target="#demo2"><a href="#">个人中心</a></li>
+           <ul class="nav nav-pills nav-stacked navbar-inverse collapse" id="demo2" style="margin-left:10%;margin-right:10%">
+                <li class="text-center"><a href="#">基本信息</a></li>
+           		<li class="text-center"><a href="#">编辑资料</a></li>
+           </ul>
+       </ul>
+       </div>
+       
+       <div class="col-lg-10 col-md-9 col-sm-9">
+          <div class="container">
+          <img src="images/center.PNG" class="img-responsive center-block hidden-xs" alt="学生端中心图片"/>
+          <div class="row" style="margin-top:5%;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+              <div><img src="images/学生端中心作业.png" class="img-responsive center-block" alt="学生端中心作业"/></div>
+              <p class="text-center" style="font-family:chinese1; margin-top:5%; font-size:20px;"><big>作业</big></p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+              <div><img src="images/学生端中心成绩.png" class="img-responsive center-block" alt="学生端中心成绩"/> </div>
+              <p class="text-center" style="font-family:chinese1; margin-top:5%; font-size:20px;"><big>成绩</big></p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+              <div><img src="images/学生端中心反馈.png" class="img-responsive center-block" alt="学生端中心反馈"/></div>
+              <p class="text-center" style="font-family:chinese1; margin-top:5%; font-size:20px;"><big>反馈</big></p>
+              </div>
+          </div>
+          </div>
+   </div>
+	  </div>
+   
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+   <script src="bootstrap/js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
