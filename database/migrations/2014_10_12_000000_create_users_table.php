@@ -14,12 +14,16 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->increments('id');//自增的id 方便关联名
+            $table->string('student_id')->nullable()->index();//学号
+            $table->string('username');//用户名
+            $table->string('email')->unique();//邮箱
+            $table->string('password',100);//密码
+            $table->string('realname')->nullable();//真实姓名
+            $table->boolean('is_ta')->default(false);//是否为助教
+            $table->integer('ta_course')->default(0);//助教默认课程号
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps();//时间戳
         });
     }
 

@@ -1,5 +1,5 @@
 body{
-  background-color: #F0F0F0;
+  background-color:#FFFFFF;
 }
      
 #toper {
@@ -73,8 +73,7 @@ button{
 
 h1{
 	word-spacing: 40px;
-	font-family: STFangsong;
-    
+	font-family: Andale Mono;   
 }
 
 h2{

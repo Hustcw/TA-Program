@@ -9,3 +9,16 @@
 	font-family:chinese2;
 	src: url('SourceHanSansCN-Light.otf');
 }
+
+@font-face
+{
+	font-family: Tekton Pro;
+	src:url('TektonPro-Bold.otf');
+}
+
+@font-face
+{
+	font-family: Hobo Std;
+	src:url('HoboStd.otf');
+}
+

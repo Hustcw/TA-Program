@@ -34,3 +34,12 @@
 	.nav-mini1.nav1 .nav-item1:hover .nav-item a{color:#FFF;}
 	.nav-mini1.nav1 .nav-item1:hover a:before{opacity:1;}
 	.nav-mini1.nav1 .nav-item1:hover ul{display: block;}
+
+/* 顶部导航栏 */
+.navbar-brand
+{
+	font-family:Tekton Pro;
+	padding-top:20px;
+	font-size:40px;
+	letter-spacing: 5px;
+}

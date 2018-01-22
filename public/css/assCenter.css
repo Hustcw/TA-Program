@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* header */
+.navbar-brand
+{
+	font-family:Tekton Pro;
+	padding-top:20px;
+	font-size:40px;
+	letter-spacing: 5px;
+}
+
+.title
+{
+	border-bottom:1px solid #E0E0E0;
+	letter-spacing:2px;
+}
+
+.title>span
+{
+	font-family:chinese2;
+	font-size:150%;
+	border-bottom:5px solid #E0E0E0;
+}
+
+.sm-title
+{
+	margin-bottom: 5px;
+}
+.sm-title>span
+{
+	letter-spacing:2px;
+	font-family:chinese2;
+	font-size:120%;
+	color:#4F4E4E;
+}
+
+.wr-info
+{
+	padding:25px;
+}
+
+#close
+{
+	color:#808080;
+}
+
+#close:hover
+{
+	color:#820406;
+}
+
+/*footer*/
+
+footer ul li
+{
+	margin:5px;
+}
+

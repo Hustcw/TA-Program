@@ -1,68 +1,52 @@
 body{
-	background-color:#F0F0F0;
+	background-color:#FFFFFF;
+	font-family:chinese2;
 }
 
-.black-board {
-	background-color: black;
-	height: 50px;
-	width: 100%;
-	position:fixed;
-	bottom:0;
+
+#btn-course
+{
+	background-color:rgba(0,0,0,0);
+	color:rgba(153,153,153,1.00);
+	border:solid rgba(153,153,153,1.00) 1px;
 }
 
-.square-block {
-	margin: 10px;
-	padding: 10px;
-	height: 240px;
-	width: 240px;
+#btn-course:hover
+{
+	color:white;
+	border:solid white 1px;
 }
 
-@charset "utf-8";
-/* 以下实际使用若已初始化可删除 .nav height父级需逐级设置为100%*/
-body,html{height: 100%;background: #E2E2E2}
-body,ul{margin:0;padding:0}
-body{font:14px "微软雅黑","宋体","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;} 
-li{list-style:none} 
-a{text-decoration:none;}
-/* 以上实际使用若已初始化可删除 */
+.navbar-brand
+{
+	font-family:Tekton Pro;
+	padding-top:20px;
+	font-size:40px;
+	letter-spacing: 5px;
+}
 
-/* nav */
-.mynav{width: 220px;height: 100%;background: #263238;transition: all .3s;}
-.mynav a{display: block;overflow: hidden;padding-left: 20px;line-height: 46px;max-height: 46px;color: #ABB1B7;transition: all .3s;}
-.mynav a span{margin-left: 30px;}
-.mynav-item{position: relative;}
-.mynav-item.mynav-show{border-bottom: none;}
-.mynav-item ul{display: none;background: rgba(0,0,0,.1);}
-.mynav-item.mynav-show ul{display: block;}
-.mynav-item>a:before{content: "";position: absolute;left: 0px;width: 2px;height: 46px;background: #34A0CE;opacity:0;transition: all .3s;}
-.mynav .mynav-icon{font-size: 20px;position: absolute;margin-left:-1px;}
-/* 此处修改导航图标 可自定义iconfont 替换*/
-.icon_1::after{content: "\e62b";}
-.icon_2::after{content: "\e669";}
-.icon_3::after{content: "\e61d";}
-/*---------------------*/
-.mynav-more{float:right;margin-right: 20px;font-size: 12px;transition: transform .3s;}
-/* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
-.mynav-more::after{content: "\e621";}
-/*---------------------*/
-.mynav-show .mynav-more{transform:rotate(90deg);}
-.mynav-show,.mynav-item>a:hover{color: #FFF;background:rgba(0,0,0,.1);}
-.mynav-show>a:before,.mynav-item>a:hover:before{opacity:1;}
-.mynav-item li:hover a{color: #FFF;background: rgba(0, 0, 0,.1);}
+.sign
+{
+	font-family:Hobo Std;
+	font-size:80px;
+	color:white;
+}
 
-/* mynav-mini */
-.mynav-mini.mynav{width: 60px;}
-.mynav-mini.mynav .mynav-icon{/* margin-left:-2px; */}
-.mynav-mini.mynav .mynav-item>a span{display: none;}
-.mynav-mini.mynav .mynav-more{margin-right: -20px;}
-.mynav-mini.mynav .mynav-item ul{position: absolute;top:0px;left:60px;width: 180px;z-index: 99;background:#3C474C;overflow: hidden;}
-.mynav-mini.mynav .mynav-item:hover{background:rgba(255,255,255,.1);}
-.mynav-mini.mynav .mynav-item:hover .mynav-item a{color:#FFF;}
-.mynav-mini.mynav .mynav-item:hover a:before{opacity:1;}
-.mynav-mini.mynav .mynav-item:hover ul{display: block;}
+/*旋转字体*/
+.beat-char {
+    line-height: 3.4em;
+    position: relative;
+	display: inline-block;
+	background: transparent;
 
+}
 
+.rotate{
+	transform:rotate(360deg) ;
+	-ms-transform:rotate(360deg); 	/* IE 9 */
+	-moz-transform:rotate(360deg); 	/* Firefox */
+	-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+	-o-transform:rotate(360deg);
+	-webkit-transition-duration: 0.7s;
 
-
-
-
+}

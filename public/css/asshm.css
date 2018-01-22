@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+/* header */
+.navbar-brand{
+ font-family:Tekton Pro;
+ letter-spacing: 5px;
+ font-size:40px;
+ padding-top: 20px;
+}
+
+
 #submit
 {
 	width:100%;
@@ -7,7 +16,7 @@
 
 .title
 {
-	border-bottom:2px solid #aaaaaa;
+	border-bottom:1px solid #aaaaaa;
 	letter-spacing:2px;
 }
 
@@ -15,7 +24,7 @@
 {
 	font-family:chinese2;
 	font-size:150%;
-	border-bottom:6px solid #aaaaaa;
+	border-bottom:5px solid #aaaaaa;
 }
 
 .sm-title
