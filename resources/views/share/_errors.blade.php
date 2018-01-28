@@ -8,7 +8,7 @@
 					   background: linear-gradient(0deg, rgba(250,250,250,0.20),rgba(250,170,170,0.50));
 				       position:fixed;margin-top:47px;padding:15px;border-radius:10px;color:#432529;font-family:chinese2;font-size:14px;list-style-type:none;z-index:1">
             @foreach($errors->all() as $error)
-			   <li><span class="glyphicon glyphicon-exclamation-sign">{{ $error }}</span></li>
+			   <li><span class="glyphicon glyphicon-remove-sign">{{ $error }}</span></li>
             @endforeach
            </ul>
 	  </div>
