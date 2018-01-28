@@ -58,17 +58,15 @@
 		
 		 <a class="navbar-brand" style="color:aliceblue;" href="#">TAT</a>	
 			   
-		 <a class="signupbtn " style="position:relative;top:10px;float:right" href="#">注册</a>
+		 <a class="signupbtn " style="position:relative;top:10px;float:right" href="{{route('signup')}}">注册</a>
 		  
 	  </div>
 	</div>
-  
-	  
+	 @include('share._messages')
+	 @include('share._errors')
 	 <!--welcome-->
-   <div class="jumbotron" style="background-color: #2b3137; padding-top: 175px; padding-bottom: 175px;">
-	   @include('share._messages')//消息的状态提示
-	   @include('share._errors')//错误消息提示
-       <!--首页--> 
+   <div class="jumbotron" style="background-color: #2b3137; padding-top: 175px; padding-bottom: 175px; margin-top:0px;">
+       <!--首页-->
 	   <div class="container">
        <div class="row">
 		  

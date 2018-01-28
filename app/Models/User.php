@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username','realname','ta_course','student_id',
+        'name', 'email', 'password','username','realname','ta_course','student_id','phonenumber',
     ];
 
     /**
@@ -29,6 +29,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function ta_course(){
+        $course=Course::where('course_id','=',$this->ta_course)->first();
+        return $course;
+    }
+
     public function courses()
     {
         return $this->belongsToMany(Course::Class,'course_user','user_id','course_id');
@@ -39,4 +45,17 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::Class,'task_user','user_id','task_id');
     }//用户和任务多对多
 
+
+    public function hasCourse($course_id)
+    {
+        return $this->courses->contains($course_id);
+    }//利用动态属性加contains方法判断是否已选课程
+
+    public function addcourse($course_ids)
+    {
+        if(!is_array($course_ids)){
+            $course_ids=compact('course_ids');
+        }
+        $this->courses()->sync($course_ids,false);
+    }
 }

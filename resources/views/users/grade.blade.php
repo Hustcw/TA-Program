@@ -58,7 +58,7 @@
 	
 	<!--顶导航栏-->
 	<!--顶导航栏-->
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="z-index:1">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" >
 	  <div class="container-fluid" style="padding-left: 10%;padding-right:10%">
 		<!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

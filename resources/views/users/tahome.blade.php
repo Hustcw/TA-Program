@@ -6,16 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,  user-scalable=no">
 <title>助教主页</title>
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/student.css" />
- <script src="js/student.js" type="text/javascript"></script>
-	 <script src="bootstrap/js/jquery.min.js"></script>
-<link href="css/chinese_font.css" rel="stylesheet"/>
-<script src="bootstrap/js/jquery-1.11.2.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.beattext.js"></script>
-<script type="text/javascript" src="js/easying.js"></script>
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/student.css" />
+ <script src="/js/student.js" type="text/javascript"></script>
+	 <script src="/bootstrap/js/jquery.min.js"></script>
+<link href="/css/chinese_font.css" rel="stylesheet"/>
+<script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.beattext.js"></script>
+<script type="text/javascript" src="/js/easying.js"></script>
 
 	  <script type="text/javascript">
 			$(document).ready(function() {
@@ -48,7 +48,7 @@
 <body style="background:#2C2C2C;">
 	
   <!--导航栏-->
-   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="z-index:1">
+   <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" >
 	  <div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -76,9 +76,19 @@
 
 
 		  <ul class="nav navbar-nav navbar-right">
-			 <li >
-			  <a href="#" role="button">个人中心</a>
-			 </li>
+			  <li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
+				  <ul class="dropdown-menu">
+					  <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
+					  <li>
+						  <form action="{{ route('signout') }}" method="POST">
+							  {{ csrf_field() }}
+							  {{ method_field('DELETE') }}
+							  <button class="btn btn-block btn-danger" type="submit" name="button">退出登陆</button>
+						  </form>
+					  </li>
+				  </ul>
+			  </li>
 		  </ul>
 
 		</div><!-- /.navbar-collapse -->
@@ -86,7 +96,7 @@
 	</nav> 
     	
   <!--main-->
-
+  		@include('share._messages')
 	  <div class="container" style="margin-top: 60px">
 		  <div class="row">
 			  <div class="col-lg-12 col-md-12 col-sm-12 col-xm-12" align="center">
@@ -203,7 +213,7 @@
 		</div>
 	  </div>
   </div>
-<script src="js/Tahome.js"></script>
+<script src="/js/Tahome.js"></script>
 
 </body>
 </html>

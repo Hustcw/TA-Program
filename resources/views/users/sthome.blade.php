@@ -67,7 +67,7 @@
 
 		  
    <!--顶导航栏-->
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="z-index:1">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" >
 	  <div class="container-fluid" style="padding-left: 10%;padding-right:10%">
 		<!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -86,10 +86,11 @@
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">你的课程 <span class="caret"></span></a>
 			  <ul class="dropdown-menu">
-				<li><a href="#">数据结构</a></li>
-				<li><a href="#">线性电子电路</a></li>
-				<li><a href="#">数字逻辑电路</a></li>
-				<li><a href="#">c++程序设计</a></li>
+				  @foreach($courses as $course)
+					  <li>
+						  <a href="#">{{$course->course_name}}</a>
+					  </li>
+				  @endforeach
 				<li>
 					<a href="#" data-toggle="modal" data-target="#myModal">
 					<span class="glyphicon glyphicon-plus"></span>
@@ -98,20 +99,23 @@
 			  </ul>
 			</li>
 		  </ul>
-			
-		  
-			
+
 		  <ul class="nav navbar-nav navbar-right">
 			 <li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
 			  <ul class="dropdown-menu">
-				  <li><a href="#">修改个人信息</a></li>
+				  <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
 				  <li><a href="#">设置提醒方式</a></li>
-				  <li><a href="#">退出登录</a></li>
+				  <li>
+					  <form action="{{ route('signout') }}" method="POST">
+						  {{ csrf_field() }}
+						  {{ method_field('DELETE') }}
+						  <button class="btn btn-block btn-danger" type="submit" name="button">退出登陆</button>
+					  </form>
+				  </li>
 			  </ul>
 			 </li>
 		  </ul>
-		
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
@@ -125,33 +129,36 @@
                 <h4 class="modal-title" id="myModalLabel">添加课程</h4>
             </div>
             <div class="modal-body row" style="padding-left:10%; padding-right:10%;">
-               <form  role="form">
+               <form  action="{{route('add.course',['user'=>Auth::user()])}}" method="POST" role="form">
+				   {{csrf_field()}}
+
                 <div class="input-group">
-                <span class="input-group-addon">学号</span>
-                <input type="text" class="form-control" placeholder="PB15000135" disabled>
+                <span class="input-group-addon">用户名</span>
+                <input type="text" class="form-control" value="{{$user->username}}" disabled>
                 </div>
                 <br>
                 <div class="input-group">
                 <span class="input-group-addon">姓名</span>
-                <input type="text" class="form-control" placeholder="俞晨东" disabled>
+                <input type="text" class="form-control" value="{{$user->realname}}" disabled>
                 </div>
                 <br>
                 <div class="input-group">
                 <span class="input-group-addon">添加课程号</span>
-                <input type="text" class="form-control" placeholder="#AS136954">
-                </div>
+                <input name="course_id" type="text" class="form-control" placeholder="课程号">
+				</div>
                 <br>
+				   <div class="modal-footer">
+					   <button type="submit" class="btn btn-primary btn-block" id="submit">提交</button>
+				   </div>
               </form>
-               
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">提交</button>
-            </div>
+			</div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
                     
-   	<!--主体-->	  
+   	<!--主体-->
+   		@include('share._messages')
+   		@include('share._errors')
 	  <div class="container" style="margin-top: 70px">
 		  <div class="row">
 			  <div class="col-lg-12 col-md-12 col-sm-12 col-xm-12" align="center">
@@ -160,10 +167,10 @@
 				  </div>
 				  <!--TAT-->
 				  <div class="sign">
-				  <span style="color:aqua" id="beatText1">T</span><span class="hidden-xs" id="beatText2">eaching </span><span style="color:aqua" id="beatText3">A</span><span class="hidden-xs" id="beatText4">ssis</span><span style="color:aqua" id="beatText5">T</span><span id="beatText6" class="hidden-xs">ant</span>
+				  <span style="color:aqua" id="beatText1">T</span><span class="hidden-xs" id="beatText2">eaching </span><span style="color:aqua" id="beatText3">A</span><span class="hidden-xs" id="beatText4">ssis</span><span style="color:aqua" id="beatText5">T</span><span id="beatText6" class="hidden-xs">ance</span>
 				  </div>
 				  <div style="background-color:#2B3138;color:rgba(153,153,153,1.00);position:relative;top:-50px">
-					<h1>欢迎登陆学生端</h1>
+					<h1>欢迎你登陆学生端!</h1>
 					<p>点击下方按钮或导航栏右侧"你的课程"按钮选取、添加课程</p>
 					<p>点击导航栏右侧"个人中心"按钮修改、完善、绑定个人信息</p>
 					<p>
@@ -173,10 +180,11 @@
 						选取课程 <span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu">
-						<li><a href="#">数据结构</a></li>
-						<li><a href="#">线性电子电路</a></li>
-						<li><a href="#">数字逻辑电路</a></li>
-						<li><a href="#">c++程序设计</a></li>
+						  @foreach($courses as $course)
+							  <li>
+								  <a href="#">{{$course->course_name}}</a>
+							  </li>
+						  @endforeach
 						<li>
 							<a href="#" data-toggle="modal" data-target="#myModal">
 							<span class="glyphicon glyphicon-plus"></span>
@@ -190,6 +198,5 @@
 			    <br/>
 			  </div>
 		  </div>
-
   </body>
 </html>

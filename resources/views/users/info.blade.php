@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>TAT</title>
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-	<link href="css/chinese_font.css" rel="stylesheet"/>
-	<link href="css/assCenter.css" rel="stylesheet"/>
-	<script src="bootstrap/js/jquery-1.11.2.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="js/assCenter.js"></script>
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<link href="/css/chinese_font.css" rel="stylesheet"/>
+	<link href="/css/assCenter.css" rel="stylesheet"/>
+	<script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/assCenter.js"></script>
 </head>
 
 	
 <body>
 	<!--顶导航栏-->
-	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="z-index:1">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" >
 	  <div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -43,14 +43,17 @@
 			
 		  <ul class="nav navbar-nav navbar-right">
 			 <li >
-			  <a href="#" role="button">个人中心</a>
+			  <a href="{{route('users.show',Auth::user()->id)}}" role="button">个人中心</a>
 			 </li>
 		  </ul>
 		
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-	
+
+
+	@include('share._errors')
+	@include('share._messages')
 	<br/><br/><br/><br/><br/>
 	
 	<!--修改个人信息-->
@@ -71,12 +74,12 @@
 						<form role="form">
 							 <div class="input-group">
 								<span class="input-group-addon">真实姓名</span>
-								<input type="text" class="form-control" placeholder="姓名" style="z-index: -1000">
+								<input name="realname" type="text" class="form-control" placeholder="姓名" >
 							</div>
 							<br>
 							<div class="input-group">
 								<span class="input-group-addon">学号</span>
-								<input type="text" class="form-control" placeholder="学号" style="z-index: -1000">
+								<input type="text" class="form-control" placeholder="学号" >
 							</div>
 							<br>
 							<div class="input-group">
@@ -95,30 +98,35 @@
 					   <div class="sm-title">
 						<span >已有信息修改</span>
 					   </div>
-						<form role="form">
+						<form action="{{route('users.update',['user'=>Auth::user()])}}" method="POST" role="form">
+							{{ method_field('PATCH') }}
+							{{ csrf_field() }}
+
 							 <div class="input-group">
-								<span class="input-group-addon">修改用户名</span>
-								<input type="text" class="form-control" placeholder="用户名" style="z-index: -1000">
+								<span class="input-group-addon">用户名</span>
+								<input name="username" type="text" class="form-control" value="{{ $user->username }}">
 							</div>
 							<br>
 							<div class="input-group">
-								<span class="input-group-addon">修改邮箱</span>
-								<input type="text" class="form-control" placeholder="邮箱" style="z-index: -1000">
+								<span class="input-group-addon">邮箱</span>
+								<input name="email" type="text" class="form-control" placeholder="邮箱"  value="{{$user->email}}"disabled>
 							</div>
 							<br>
 							<div class="input-group">
-								<span class="input-group-addon">修改手机号</span>
-								<input type="text" class="form-control" placeholder="手机号" style="z-index: -1000">
+								<span class="input-group-addon">手机号</span>
+								<input name="phonenumber" type="text" class="form-control" placeholder="手机号" value="{{$user->phonenumber}}">
 							</div>
 							<br>
 							<div class="input-group">
 								<div>
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangePW">
-										&nbsp;点击修改密码&nbsp;
-									</button>&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="btn btn-default" type="submit">
-										提交修改
-									</button>
+									<div>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangePW">
+											&nbsp;点击修改密码&nbsp;
+										</button>&nbsp;&nbsp;&nbsp;&nbsp;
+										<button class="btn btn-default" type="submit">
+											提交修改
+										</button>
+									</div>
 								</div>
 							</div>
 						</form>
@@ -137,20 +145,23 @@
 			  </div>
 				<br/><br/>
 			<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-				<form role="form">
+				<form action="{{route('courses.store',['user'=>Auth::user()])}}" method="POST" role="form">
+					{{csrf_field()}}
+
 					<div class="input-group">
 						<span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
-						<input type="text" class="form-control" placeholder="请输入课堂号" style="z-index: -1000">
+						<input name="course_id" type="text" class="form-control" placeholder="请输入课堂号" value="{{$user->ta_course}}">
 					</div>
 					<br>
 					<div class="input-group">
+
 						<span class="input-group-addon">课程名称</span>
-						<input type="text" class="form-control" placeholder="请输入课程名称" style="z-index: -1000">
+						<input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->ta_course()->course_name}}">
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon">任课教师</span>
-						<input type="text" class="form-control" placeholder="请输入任课教师" style="z-index: -1000">
+						<input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->ta_course()->teacher}}">
 					</div>
 					<br>
 					<div>
@@ -181,20 +192,17 @@
 							</div>
 
 							<div class="panel-body">						
-								<form role="form">
-									<div class="input-group">
-										<span class="input-group-addon" style="font-family:chinese2">原密码</span>
-										<input type="text" class="form-control" placeholder="请输入原密码" style="z-index: -1000">
-									</div>
-									<br/>
+								<form action="{{route('users.update', $user->id )}}" method="POST" role="form">
+									{{ method_field('PATCH') }}
+									{{csrf_field()}}
 									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">新密码</span>
-										<input type="text" class="form-control" placeholder="请输入新密码" style="z-index: -1000">
+										<input name="password" type="text" class="form-control" placeholder="请输入新密码" >
 									</div>
 									<br/>
 									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">确认密码</span>
-										<input type="text" class="form-control" placeholder="请再次输入新密码" style="z-index: -1000">
+										<input name="password_confirmation" type="text" class="form-control" placeholder="请再次输入新密码" >
 									</div>
 									<br/>
 									<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
