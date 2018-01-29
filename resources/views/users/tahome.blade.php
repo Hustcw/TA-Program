@@ -120,6 +120,7 @@
               <div class="row" style="height: 100%">
 					<!-- el start -->
 				 <div class="el_pr col-lg-3 col-md-3 col-sm-3 col-xs-6" style="height: 100%">
+					 <a href="{{route('tasks.show',$user->id)}}">
 					<div class="el">
 					  <div class="el__overflow">
 						<div class="el__inner">
@@ -137,7 +138,8 @@
 						</div>
 					  </div>
 					</div>
-							</div>
+					 </a>
+				 </div>
 					<!-- el end -->
 				
 			  

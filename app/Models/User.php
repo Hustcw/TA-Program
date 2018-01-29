@@ -30,7 +30,7 @@ class User extends Authenticatable
     ];
 
 
-    public function ta_course(){
+    public function assistant_course(){
         $course=Course::where('course_id','=',$this->ta_course)->first();
         return $course;
     }

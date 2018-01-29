@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>TAT</title>
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-	<link href="css/chinese_font.css" rel="stylesheet"/>
-	<link href="css/asshm.css" rel="stylesheet"/>
-	<script src="bootstrap/js/jquery-1.11.2.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="js/asshm.js"></script>
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<link href="/css/chinese_font.css" rel="stylesheet"/>
+	<link href="/css/asshm.css" rel="stylesheet"/>
+	<script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/js/asshm.js"></script>
 </head>
 <body style="background-color:#ebeaea">
 
@@ -42,7 +42,7 @@
 			
 		  <ul class="nav navbar-nav navbar-right">
 			 <li >
-			  <a href="#" role="button">个人中心</a>
+			  <a href="{{route('users.show',$user->id)}}" role="button">个人中心</a>
 			 </li>
 		  </ul>
 		
@@ -50,7 +50,9 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 	
-	
+
+	@include('share._errors')
+	@include('share._messages')
 	<!--body-->
 	<div class="container" style="position:relative;top:70px">
 		<!--未登记-->
@@ -78,113 +80,22 @@
 								<span  style="font-size:18px;display:block">添加新作业</span>
 								<span  style="font-size:10px;display:block">点击添加作业内容</span>
 							</div>
-							
-						 </div>
+						</div>
 			        </div>
 			    </div>
 				
 		    	<!--已有的未登记作业-->
 				<div class="container-fluid panel-group" id="accordion">
-			        <div class="hm-btn row" >
-						<div >				
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
-								  <span class="glyphicon glyphicon-paperclip"></span>
-								</div> 
-							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
-										<span  style="font-size:18px;display:block">第一次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
-			        </div>
-			       </div>
-					
-					<div id="collapseOne" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容
-						</div>
-						<button class="btn btn-primary"  style="display:block" href="">登记成绩</button>
-						<br/>
-                    </div>
-					
-					<div>
-					 <div class="hm-btn row" >
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white">
-								  <span class="	glyphicon glyphicon-wrench"></span>
-								</div> 
-							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
-										<span  style="font-size:18px;display:block">第二次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
-			           </div>
-			        </div>
-					<div id="collapseTwo" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容							
-						</div>
-						<button class="btn btn-primary" href="">登记成绩</button>
-						<br/>
-                   </div>
-		    </div>
-				
+					@include('tasks.show_content')
+		    	</div>
+
+
+
 				<div class="sm-title" >
 				  <span>已截止</span>
 				</div>
 				
 				<div class="container-fluid panel-group" id="accordion1">
-			        <div class="hm-btn row" >
-						<div>
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white">
-								  <span class="	glyphicon glyphicon-paperclip"></span>
-								</div> 
-							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
-										<span  style="font-size:18px;display:block">第一次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
-			        </div>
-			    </div>
-					<div id="collapseThree" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容
-						</div>
-						<button class="btn btn-primary"  style="display:block" href="">登记成绩</button>
-						<br/>
-                    </div>
-					
 					 <div class="hm-btn row" >
 						<div>
 							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2" >
@@ -195,7 +106,7 @@
 							
 							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
 								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
+									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
 										<span  style="font-size:18px;display:block">第二次作业</span>
 								        <span  style="font-size:10px;display:block">截止日期：</span>
 									</div>
@@ -206,7 +117,7 @@
 									</div>
 								</div>   
    						   </div>
-			        </div>
+			        	</div>
 			         </div>
 					 <div id="collapseFour" class="panel-collapse collapse">
 						<div class="panel-body">
@@ -216,7 +127,6 @@
 						<br/>
                        </div>
 		        </div>
-				
 			</div>
 		
         
@@ -229,37 +139,6 @@
 				
 		    	<!--已有的未登记作业-->
 				<div class="container-fluid panel-group" id="accordion2">
-			        <div class="hm-btn row" >
-						<div>
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2" >
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white">
-								  <span class="	glyphicon glyphicon-paperclip"></span>
-								</div> 
-							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
-										<span  style="font-size:18px;display:block">第一次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
-			        </div>
-			    </div>
-					<div id="collapseFive" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容
-						</div>
-						<button class="btn btn-primary"  style="display:block" href="">登记成绩</button>
-						<br/>
-                    </div>
-					
 					 <div class="hm-btn row" >
 						<div>
 							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -270,7 +149,7 @@
 							
 							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
 								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10" data-toggle="modal" data-target="#AddNewHW">
+									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
 										<span  style="font-size:20px;display:block">第二次作业</span>
 								        <span  style="font-size:10px;display:block">截止日期：</span>
 									</div>
@@ -281,8 +160,8 @@
 									</div>
 								</div>   
    						   </div>
-			        </div>
-			    </div>
+						</div>
+			    	</div>
 					<div id="collapseSix" class="panel-collapse collapse">
 						<div class="panel-body">
 							作业内容							
@@ -290,7 +169,7 @@
 						<button class="btn btn-primary" href="">登记成绩</button>
 						<br/>
                    </div>
-		    </div>
+		    	</div>
 			
 			</div>
 		</div>
@@ -310,25 +189,30 @@
 							  </a>
 							</div>
 
-							<div class="panel-body">						
-								<form role="form">
+							<div class="panel-body">
+								<form action="{{route('tasks.store',['user'=>Auth::user()])}}" method="POST" role="form">
+									{{csrf_field()}}
+
 									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">任务名</span>
-										<input type="text" class="form-control" placeholder="请输入任务名称">
+										<input name="title" type="text" class="form-control" placeholder="请输入任务名称">
 									</div>
 									<br/>
 									<div class="input-group">
+										<input name="ta_course" type="hidden" class="form-control" placeholder="请输入任务名称" value="{{Auth::user()->ta_course}}">
+									</div>
+									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">截止日期</span>
-										<input type="date" class="form-control" placeholder="请输入任务名称">
+										<input name="deadline" type="datetime-local" class="form-control">
 									</div>
 									<br/>
 									<div class="form-group">
-										<textarea  class="form-control" placeholder="输入任务内容（请勿超过200字)" rows="8"></textarea>
+										<textarea name="taskcontent" class="form-control" placeholder="输入任务内容（请勿超过200字)" rows="8"></textarea>
 									</div>
 									
 									<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
 									<div>
-										<button type="button" class="btn btn-primary" id="submit">提交</button>
+										<button type="submit" class="btn btn-primary btn-block" id="submit">提交</button>
 									</div>
 								    </div>
 								</form>

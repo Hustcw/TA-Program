@@ -32,3 +32,8 @@ Route::delete('signout', 'SessionsController@destroy')->name('signout');//退出
 
 
 Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.store');//提交课程信息处理
+
+
+
+Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
+Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库

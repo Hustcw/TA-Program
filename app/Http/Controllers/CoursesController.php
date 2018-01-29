@@ -14,15 +14,16 @@ class CoursesController extends Controller
             'course_id' => 'required|unique:courses',
             'course_name' => 'required|max:60',
             'teacher' => 'required',
-        ]);
+        ]);//验证
 
         Course::create([
             'course_id' => $request->course_id,
             'course_name' => $request->course_name,
             'teacher' => $request->teacher,
-        ]);
+        ]);//创建新数据入数据库
 
-        $user->update(['ta_course'=>$request->course_id]);
+        $user->update(['ta_course'=>$request->course_id]);//更改助教默认的课程号
+
         session()->flash('success','课程信息添加成功！');
         return redirect()->route('users.show',$user->id);
     }

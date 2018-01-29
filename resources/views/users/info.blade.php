@@ -148,6 +148,7 @@
 				<form action="{{route('courses.store',['user'=>Auth::user()])}}" method="POST" role="form">
 					{{csrf_field()}}
 
+
 					<div class="input-group">
 						<span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
 						<input name="course_id" type="text" class="form-control" placeholder="请输入课堂号" value="{{$user->ta_course}}">
@@ -156,12 +157,12 @@
 					<div class="input-group">
 
 						<span class="input-group-addon">课程名称</span>
-						<input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->ta_course()->course_name}}">
+						<input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->assistant_course()->course_name}}">
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon">任课教师</span>
-						<input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->ta_course()->teacher}}">
+						<input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->assistant_course()->teacher}}">
 					</div>
 					<br>
 					<div>
@@ -195,14 +196,20 @@
 								<form action="{{route('users.update', $user->id )}}" method="POST" role="form">
 									{{ method_field('PATCH') }}
 									{{csrf_field()}}
+
+									<div class="input-group">
+										<span class="input-group-addon" style="font-family:chinese2">原密码</span>
+										<input name="former_password" type="password" class="form-control" placeholder="请输入原密码" >
+									</div>
+									<br/>
 									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">新密码</span>
-										<input name="password" type="text" class="form-control" placeholder="请输入新密码" >
+										<input name="password" type="password" class="form-control" placeholder="请输入新密码" >
 									</div>
 									<br/>
 									<div class="input-group">
 										<span class="input-group-addon" style="font-family:chinese2">确认密码</span>
-										<input name="password_confirmation" type="text" class="form-control" placeholder="请再次输入新密码" >
+										<input name="password_confirmation" type="password" class="form-control" placeholder="请再次输入新密码" >
 									</div>
 									<br/>
 									<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">

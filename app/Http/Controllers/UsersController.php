@@ -57,16 +57,19 @@ class UsersController extends Controller
         if($request->phonenumber){
             $data['phonenumber'] = $request->phonenumber;
         }
-        if ($request->password) {
-            if (Auth::once(['email' =>$request->email , 'password' => $request->former_password])) {
+        if ($request->former_password) {
+            if (Auth::attempt(['email' =>$user->email , 'password' => $request->former_password])) {
                 $data['password'] = bcrypt($request->password);
+            }
+            else{
+                session()->flash('warning','原密码输入错误！');
+                return redirect()->back();
             }
         }
 
         $user->update($data);
+        session()->flash('info', '个人资料更新成功！');
 
-        session()->flash('success', '个人资料更新成功！');
-
-        return redirect()->route('users.show', $user->id);
+        return redirect()->back();
     }
 }
