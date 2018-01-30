@@ -26,6 +26,6 @@ class UserPolicy
 
     public function bind_course(User $currentUser)
     {
-        return $currentUser->is_ta;
+        return $currentUser->is_ta && session()->has('identity');
     }
 }

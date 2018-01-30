@@ -105,10 +105,10 @@
 			 </div>
              <div align="center">
              <label class="radio-inline">
-                 <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>我是助教
+                 <input type="radio" name="identity" id="optionsRadios3" value="1" checked>我是助教
              </label>
              <label class="radio-inline">
-                 <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 我是学生
+                 <input type="radio" name="identity" id="optionsRadios4"  value="0"> 我是学生
              </label>
 		     </div>
 			 <br/>
@@ -119,7 +119,7 @@
 			 </div>
 
 			 <div class="collapse" id="signup-buttons">
-				<input type="checkbox">记住我
+				<input name="remember" type="checkbox">记住我
 				<a class="pull-right">忘记密码？</a>
 			 </div>
 
