@@ -89,7 +89,7 @@
 		   <br/>
 		   
 		   <!--登陆框-->
-		   <div class="signup col-lg-4  col-md-4  col-sm-5 hidden-xs" style="background-color: #FFFFFF;">
+		   <div class="signin col-lg-4  col-md-4  col-sm-5 hidden-xs" style="background-color: #FFFFFF;">
 		   <form method="POST" action="{{route('signin')}}" role="form" style="margin:5%;">
 			   {{csrf_field()}}
 
@@ -113,6 +113,16 @@
 		     </div>
 			 <br/>
              <button type="submit" class="btn btn-default center-block" style="width:200px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+			 
+			  <div class="Inbtns-open" align="center">
+				   <span class="glyphicon glyphicon-menu-down " data-toggle="collapse" href="#signup-buttons" aria-expanded="false" aria-controls="signup-buttons"></span>
+			 </div>
+
+			 <div class="collapse" id="signup-buttons">
+				<input type="checkbox">记住我
+				<a class="pull-right">忘记密码？</a>
+			 </div>
+
 		 </form>    
 		   </div>    
 	   </div>
