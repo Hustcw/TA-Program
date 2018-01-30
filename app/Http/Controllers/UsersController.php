@@ -8,6 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'except'=>['create','store']
+        ]);
+
+        $this->middleware('guest',[
+           'only'=>['create']
+        ]);
+    }
+
+
     public function create()
     {
         return view('signup');
@@ -33,6 +45,7 @@ class UsersController extends Controller
 
     public function show(User $user)
     {
+        $this->authorize('verify',$user);
         $courses=$user->courses()->paginate();
         if($user->is_ta) return view('users.tahome',compact('user','courses'));
         return view('users.sthome',compact('user','courses'));
@@ -40,6 +53,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('verify',$user);
         return view('users.info',compact('user'));
     }
 
@@ -50,6 +64,7 @@ class UsersController extends Controller
             'password' => 'nullable|confirmed|min:6'
         ]);
 
+        $this->authorize('verify',$user);
         $data = [];
         if($request->username) {
             $data['username'] = $request->username;

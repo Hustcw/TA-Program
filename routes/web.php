@@ -26,8 +26,8 @@ Route::patch('/users/{users}', 'UsersController@update')->name('users.update');/
 Route::delete('/users/{users}', 'UsersController@destroy')->name('users.destroy');
 */
 
-Route::get('signin','SessionsController@signin')->name('signin');//登陆页面
-Route::post('signin', 'SessionsController@store')->name('signin');//登陆提交
+Route::get('/signin','SessionsController@signin')->name('signin');//登陆页面
+Route::post('/signin', 'SessionsController@store')->name('signin');//登陆提交
 Route::delete('signout', 'SessionsController@destroy')->name('signout');//退出登录
 
 
@@ -37,3 +37,4 @@ Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.s
 
 Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
 Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库
+Route::get('users/{users}/courses/{courses}/tasks','TasksController@stshow')->name('tasks.stshow');//学生查询成绩页面

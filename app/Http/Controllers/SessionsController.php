@@ -9,6 +9,14 @@ use Auth;
 
 class SessionsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest',[
+            'only'=>['signin']
+        ]);
+    }
+
     public function signin()
     {
         return view('signin');
