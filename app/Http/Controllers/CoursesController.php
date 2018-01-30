@@ -8,6 +8,13 @@ use App\Models\User;
 
 class CoursesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',[
+           'except'=>[]
+        ]);
+    }
+
     public function bindcourse(User $user,Request $request)
     {
         $this->validate($request,[
@@ -16,6 +23,7 @@ class CoursesController extends Controller
             'teacher' => 'required',
         ]);//验证
 
+        $this->authorize('bind_course');
         Course::create([
             'course_id' => $request->course_id,
             'course_name' => $request->course_name,
