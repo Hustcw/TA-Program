@@ -86,7 +86,7 @@
 				
 		    	<!--已有的未登记作业-->
 				<div class="container-fluid panel-group" id="accordion">
-					@include('tasks.show_content')
+					@include('tasks.ta_show_content')
 		    	</div>
 
 
