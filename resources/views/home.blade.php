@@ -206,9 +206,6 @@
 		        <br/><br/>
 	       </div>
    
-	  <br/><br/>
-	  <div style="background-color:#000000;height:150px">
-	  </div>
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    
   <!-- Include all compiled plugins (below), or include individual files as needed -->
