@@ -1,5 +1,5 @@
 @if (count($errors) > 0)
-    <div class="container-fluid">
+    <div class="errors container-fluid">
 	  <div class="row">
 		   <ul class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offest-1 col-sm-10 col-xs-offset-1 col-xs-10 text-center" 
 			   style=" background: -webkit-linear-gradient(0deg, rgba(250,250,250,0.20),rgba(250,170,170,0.50));
@@ -13,4 +13,8 @@
            </ul>
 	  </div>
     </div>
+
+    <script>	 
+	   $(".errors").delay(8000).fadeOut();
+    </script>  
 @endif
