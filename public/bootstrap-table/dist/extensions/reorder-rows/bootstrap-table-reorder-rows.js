@@ -109,7 +109,7 @@
             .concat(newData)
             .concat(tableBsOptions.data.slice(tableBsData.pageTo));
 
-        //Call the user defined function
+        //Call the users defined function
         tableBsOptions.onReorderRowsDrop.apply(table, [table, droppedRow]);
 
         //Call the event reorder-row

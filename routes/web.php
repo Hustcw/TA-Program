@@ -13,16 +13,27 @@
 
 Route::get('/','HomePageController@home');
 
+Route::resource('/users', 'UsersController');
+Route::get('/signup','UsersController@create')->name('signup');//注册页面
+Route::post('/users/{users}/addcourse','CourseUsersController@store')->name('add.course');
+/*
 Route::get('/users', 'UsersController@index')->name('users.index');//
-Route::get('/users/{user}', 'UsersController@show')->name('users.show');//个人主页
-Route::get('/users/create', 'UsersController@create')->name('users.create');//
-Route::post('/users', 'UsersController@store')->name('users.store');
-Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
-Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
-Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
-
-Route::get('/signup','UsersController@signup')->name('signup');//注册页面
+Route::get('/users/{users}', 'UsersController@show')->name('users.show');//个人主页
+Route::get('/users/create', 'UsersController@create')->name('users.create');//注册页面
+Route::post('/users', 'UsersController@store')->name('users.store');//注册处理
+Route::get('/users/{users}/edit', 'UsersController@edit')->name('users.edit');//编辑个人信息页面
+Route::patch('/users/{users}', 'UsersController@update')->name('users.update');//更新个人信息处理
+Route::delete('/users/{users}', 'UsersController@destroy')->name('users.destroy');
+*/
 
 Route::get('signin','SessionsController@signin')->name('signin');//登陆页面
 Route::post('signin', 'SessionsController@store')->name('signin');//登陆提交
 Route::delete('signout', 'SessionsController@destroy')->name('signout');//退出登录
+
+
+Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.store');//提交课程信息处理
+
+
+
+Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
+Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库
