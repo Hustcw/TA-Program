@@ -100,12 +100,16 @@
         <b><li><a >帮助</a></li></b>
         <b><li><a >建议与反馈</a></li></b>
     </ul>
+	@include('share._errors')
     <br>
 	 <br>
+	<br>
+	<br><br>
+	<br>
     <div class="container">
 		<div class="row">
 		 <div class="col-lg-offset-3 col-lg-6 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-			 @include('share._errors')
+
 		 <div class="jumbotron">
 		   <div id="header">
              <h2>注 册</h2>

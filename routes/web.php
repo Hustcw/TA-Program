@@ -32,6 +32,9 @@ Route::post('/signin', 'SessionsController@store')->name('signin');//登陆提�
 Route::delete('signout', 'SessionsController@destroy')->name('signout');//退出登录
 
 
+Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');//邮箱激活
+
+
 Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.store');//提交课程信息处理
 
 
@@ -39,3 +42,4 @@ Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.s
 Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
 Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库
 Route::get('users/{users}/courses/{courses}/tasks','TasksController@stshow')->name('tasks.stshow');//学生查询成绩页面
+

@@ -17,6 +17,6 @@
     </div>
 
     <script>	 
-	   $(".errors").delay(8000).fadeOut();
+	   $(".errors").delay(5000).fadeOut();
     </script>  
 @endif

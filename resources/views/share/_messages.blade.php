@@ -66,7 +66,7 @@
 			@break
          @endswitch
          <script>	 
-		   $(".message").delay(8000).fadeOut();
+		   $(".message").delay(5000).fadeOut();
 		</script>  
     @endif
 @endforeach
