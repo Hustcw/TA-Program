@@ -50,9 +50,10 @@
                               notEmpty:{
                                   message:"邮箱不可为空"
                               },
-                              emailAddress:{
-                                  message:"邮箱名有误"
-                              },
+							 regexp: {
+							  regexp: /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/,
+							  message: '邮箱格式不正确'
+							},
                               stringLength:{
                                   max:50,
                                   message:"邮箱长度不可超过60"
@@ -94,11 +95,10 @@
   </head>
   <body>
     <ul>
-        <b><li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
-        <b><li><a class="orange" href="register.html">注册</a></li></b>
-        <b><li><a href="about_us.html">关于我们</a></li></b> 
-        <b><li><a >帮助</a></li></b>
-        <b><li><a >建议与反馈</a></li></b>
+		<b><li><a href="{{route('homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
+		<b><li><a class="orange" href="{{route('signup')}}">注册</a></li></b>
+		<!--<b><li><a>帮助</a></li></b>
+		<b><li><a>建议与反馈</a></li></b>-->
     </ul>
 	@include('share._errors')
     <br>
@@ -125,7 +125,7 @@
 
 				 <div class="form-group">
 					 <label for="邮箱">邮箱</label>
-					 <input  name="email" type="email" class="form-control" id="邮箱"
+					 <input  name="email" type="text" class="form-control" id="邮箱"
 					 placeholder="邮箱" maxlength="60">
 				 </div>
 

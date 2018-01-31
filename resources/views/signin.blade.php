@@ -20,11 +20,10 @@
 </head>
 <body>
     <ul>
-        <b><li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
-        <b><li><a class="orange" href="register.html">注册</a></li></b>
-        <b><li><a href="about_us.html">关于我们</a></li></b>  
-        <b><li><a>帮助</a></li></b>
-        <b><li><a>建议与反馈</a></li></b>
+        <b><li><a href="{{route('homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
+        <b><li><a class="orange" href="{{route('signup')}}">注册</a></li></b>
+       <!-- <b><li><a>帮助</a></li></b>
+        <b><li><a>建议与反馈</a></li></b>-->
     </ul>
     <br><br><br>
     
@@ -56,7 +55,7 @@
              </label>
 		     </div>
              <br>
-             <button type="submit" class="btn btn-default center-block" style="width:160px;">注&nbsp;册</button>
+             <button type="submit" class="btn btn-default center-block" style="width:160px;">登&nbsp;录</button>
 		 </form>    
 	  </div>
 	  </div>
