@@ -23,7 +23,7 @@ class CoursesController extends Controller
             'teacher' => 'required',
         ]);//验证
 
-        $this->authorize('bind_course');
+        $this->authorize('bind_course',$user);
         Course::create([
             'course_id' => $request->course_id,
             'course_name' => $request->course_name,

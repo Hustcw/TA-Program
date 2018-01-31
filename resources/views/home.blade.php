@@ -75,10 +75,10 @@
 		   <h1>欢迎来到TAT！</h1>
 		   <p class="hidden-sm hidden-xs">TAT是为当代大学生量身打造的学习管理平台</p>
 		   <p>TAT，为了更好的助教管理</p>
-		   <p>TAT,为了更好的学生学习</p>
-		   <p>TAT,为了更好的未来！</p>
-		   <p>TAT,为了更好的未来！</p>
-		   <p>TAT,为了更好的未来！</p>
+		   <p>TAT，为了更好的学生学习</p>
+		   <p>TAT，为了更好的未来！</p>
+		   <p>TAT，为了更好的未来！</p>
+		   <p>TAT，为了更好的未来！</p>
 		   </div>
 		   
 		   <!--小屏幕注册按钮-->
@@ -187,12 +187,12 @@
 						 <br/>
 					 </div>
 					 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" align="center">
-						 <img src="images/wh.jpg" class="img-responsive img-circle">
+						 <img src="/images/wh.JPG" class="img-responsive img-circle">
 						 <div class="name">王皓</div>
 						 <br/>
 					 </div>
 					 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" align="center">
-						 <img src="images/pml.jpg" class="img-responsive img-circle">
+						 <img src="images/pml.JPG" class="img-responsive img-circle">
 						 <div class="name">庞茂林</div>
 						 <br/>
 					 </div>

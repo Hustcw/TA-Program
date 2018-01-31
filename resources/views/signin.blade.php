@@ -20,11 +20,10 @@
 </head>
 <body>
     <ul>
-        <b><li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
-        <b><li><a class="orange" href="register.html">注册</a></li></b>
-        <b><li><a href="about_us.html">关于我们</a></li></b>  
-        <b><li><a>帮助</a></li></b>
-        <b><li><a>建议与反馈</a></li></b>
+        <b><li><a href="{{route('homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
+        <b><li><a class="orange" href="{{route('signup')}}">注册</a></li></b>
+       <!-- <b><li><a>帮助</a></li></b>
+        <b><li><a>建议与反馈</a></li></b>-->
     </ul>
     <br><br><br>
     
@@ -34,29 +33,33 @@
     </div>
     
     <br>
+    @include('share._messages')
+    @include('share._errors')
        <div class="container">
      <div class="col-lg-offset-4 col-lg-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-      <form role="form" style="margin:5%;">
+      <form method="POST" action="{{route('signin')}}" role="form" style="margin:5%;">
+          {{csrf_field()}}
+
 	         <div class="form-group">
-				 <label for="学号" style="font-size: 20px;">学号</label>
-				 <input  type="text" class="form-control" id="学号" placeholder="学号">
+				 <label for="邮箱" style="font-size: 20px;">邮箱</label>
+				 <input  name="email" type="text" class="form-control" id="学号" placeholder="邮箱" value="{{old('email')}}">
 			 </div> 
 
 			 <div class="form-group">
 				 <label for="密码" style="font-size: 20px;">密码</label>
-				 <input  type="password" class="form-control" id="密码"
+				 <input  name="password" type="password" class="form-control" id="密码"
 				 placeholder="请输入密码">
 			 </div>
              <div align="center">
              <label class="radio-inline">
-                 <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>我是助教
+                 <input type="radio" name="identity" id="optionsRadios3" value="1" checked>我是助教
              </label>
              <label class="radio-inline">
-                 <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 我是学生
+                 <input type="radio" name="identity" id="optionsRadios4"  value="0"> 我是学生
              </label>
 		     </div>
              <br>
-             <button type="submit" class="btn btn-default center-block" style="width:160px;">注&nbsp;册</button>
+             <button type="submit" class="btn btn-default center-block" style="width:160px;">登&nbsp;录</button>
 		 </form>    
 	  </div>
 	  </div>
