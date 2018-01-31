@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
 <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,6 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/jquery.beattext.js"></script>
 <script type="text/javascript" src="/js/easying.js"></script>
-
 	  <script type="text/javascript">
 			$(document).ready(function() {
 			/*

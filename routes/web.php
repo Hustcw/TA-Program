@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','HomePageController@home');
+Route::get('/','HomePageController@home')->name('homepage');
 
 Route::resource('/users', 'UsersController');
 Route::get('/signup','UsersController@create')->name('signup');//注册页面
