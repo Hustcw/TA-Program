@@ -187,12 +187,12 @@
 						 <br/>
 					 </div>
 					 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" align="center">
-						 <img src="images/wh.jpg" class="img-responsive img-circle">
+						 <img src="/images/wh.JPG" class="img-responsive img-circle">
 						 <div class="name">王皓</div>
 						 <br/>
 					 </div>
 					 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" align="center">
-						 <img src="images/pml.jpg" class="img-responsive img-circle">
+						 <img src="images/pml.JPG" class="img-responsive img-circle">
 						 <div class="name">庞茂林</div>
 						 <br/>
 					 </div>
