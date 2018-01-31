@@ -49,7 +49,7 @@ class UsersController extends Controller
     {
         $this->authorize('verify',$user);
         $courses=$user->courses()->paginate();
-        if($user->is_ta && session()->has('identity')) return view('users.tahome',compact('user'));
+        if($user->is_ta && session('identity')) return view('users.tahome',compact('user'));
         return view('users.sthome',compact('user','courses'));
     }
 
