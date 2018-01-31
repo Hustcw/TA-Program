@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
 	//表格设置
 	$("#StuScore").bootstrapTable({
@@ -45,4 +46,50 @@ $(document).ready(function(){
 		showExport: true,                     
         exportDataType: "selected", 
 	});	
+});
+*/
+$(document).ready(function(){
+    $('#StuTable').bootstrapTable({
+        columns: [{
+            checkbox:true
+        },
+            {
+                field: 'StuNumber',
+                title: '学生学号'
+            }, {
+                field: 'StuName',
+                title: '学生姓名'
+            }, {
+                field: 'StuScore',
+                title: '学生成绩',
+                editable:{
+                    type:"text"
+                }
+            }],
+        data: [{
+            StuNumber:"PB15000135",
+            StuName: '俞晨东',
+            StuScore: '100'
+        }, {
+            StuNumber:"PB15000136",
+            StuName: '俞晨东',
+            StuScore: '100'
+        },{
+            StuNumber:"PB15000137",
+            StuName: '俞晨东',
+            StuScore: '100'
+        },{
+            StuNumber:"PB15000138",
+            StuName: '俞晨东',
+            StuScore: '100'
+        },{
+            StuNumber:"PB15000139",
+            StuName: '俞晨东',
+            StuScore: '100'
+        },{
+            StuNumber:"PB15000140",
+            StuName: '俞晨东',
+            StuScore: '100'
+        }]
+    });
 });
