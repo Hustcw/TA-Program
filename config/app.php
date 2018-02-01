@@ -163,7 +163,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        HyanCat\DirectMail\AliyunDirectMailServiceProvider::class,
+        WangYan\DirectMail\DirectMailTransportProvider::class,
         /*
          * Package Service Providers...
          */

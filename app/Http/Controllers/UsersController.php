@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+
+use Rainwsy\Aliyunmail\Send\Single;
+use Rainwsy\Aliyunmail\Auth;
+
 
 class UsersController extends Controller
 {
@@ -94,10 +97,10 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'notifications@ustcta.com';
+        $from = '17718159699@163.com';
         $name = 'USTC-TA';
         $to = $user->email;
-        $subject = "感谢在 Teaching Assistance 注册！请确认你的邮箱。";
+        $subject = "USTC-TA——请确认你的邮箱。";
 
         Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
             $message->from($from, $name)->to($to)->subject($subject);
@@ -107,7 +110,6 @@ class UsersController extends Controller
     public function confirmEmail($token)
     {
         $user = User::where('activation_token', $token)->firstOrFail();
-
         $user->activated = true;
         $user->activation_token = null;
         $user->save();

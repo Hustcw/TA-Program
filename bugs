@@ -1,6 +1,8 @@
 主页图片未加载出——solved
 注册页面js检测的学号改成用户名
 signin页面无响应——solved
+http和https共存，http重定向到安全的https——solved
+
 
 学生端bug：
 添加课程，随便输入一个课程号，出现错误，不过应该是因为数据库没有那个数据的原因
