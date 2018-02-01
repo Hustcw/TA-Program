@@ -40,6 +40,7 @@ class SessionsController extends Controller
                         session()->flash('success', '欢迎回来！');
                         return redirect()->route('users.show', [Auth::user()]);
                     }else{//选择助教端登陆没有助教身份
+                        Auth::logout();
                         session()->flash('warning', '很抱歉，您还没有助教身份');
                         return redirect()->back();
                     }
