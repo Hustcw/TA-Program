@@ -139,6 +139,7 @@
 		<br/>
 
 		@can('bind_course',$user)
+            @if(!$user->ta_course)
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
 			  <div class="title" >
@@ -175,6 +176,45 @@
 		</div>
 		  </div>
 	    </div>
+                @else
+                <div class="row">
+                    <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                        <div class="title" >
+                            <span>修改课堂信息</span>
+                        </div>
+                        <br/><br/>
+                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+                            <form action="{{route('courses.update',['user'=>Auth::user()])}}" method="POST" role="form">
+                                {{ method_field('PATCH') }}
+                                {{csrf_field()}}
+
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
+                                    <input name="course_id" type="text" class="form-control" placeholder="请输入课堂号" value="{{$user->ta_course}}">
+                                </div>
+                                <br>
+                                <div class="input-group">
+
+                                    <span class="input-group-addon">课程名称</span>
+                                    <input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->assistant_course()->course_name}}">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">任课教师</span>
+                                    <input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->assistant_course()->teacher}}">
+                                </div>
+                                <br>
+                                <div>
+                                    <button class="btn btn-primary" type="submit">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交课堂信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endif
 		@endcan
 		<!-- footer -->
 		
