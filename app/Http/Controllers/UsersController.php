@@ -97,7 +97,7 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = '17718159699@163.com';
+        $from = 'notification@ustcta.com';
         $name = 'USTC-TA';
         $to = $user->email;
         $subject = "USTC-TA——请确认你的邮箱。";
