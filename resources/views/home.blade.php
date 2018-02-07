@@ -95,7 +95,7 @@
 
 	         <div class="form-group">
 				 <label for="邮箱">邮箱</label>
-				 <input  name="email" type="text" class="form-control" id="邮箱" placeholder="email">
+				 <input  name="email" type="text" class="form-control" id="邮箱" placeholder="email" value="{{old('email')}}">
 			 </div> 
 	
 			 <div class="form-group">
