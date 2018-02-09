@@ -49,6 +49,26 @@
 			});
 		});
 </script>
+	  
+<script>
+	
+	//下拉按钮切换
+	  $(function(){
+		  $("#form-toggle").click(function(){
+			  if($(this).hasClass("glyphicon-menu-up"))
+			  {
+				  $(this).addClass("glyphicon-menu-down");
+				  $(this).removeClass("glyphicon-menu-up");
+			  }
+			  else
+			  {
+				  $(this).addClass("glyphicon-menu-up");
+				  $(this).removeClass("glyphicon-menu-down");
+			  }
+		  });  
+	  });
+	  
+	  </script>
   </head>
   <body>
      <!--顶导航栏-->
@@ -84,7 +104,7 @@
 		   <!--小屏幕注册按钮-->
 		   <div class="col-xs-12 center-block visible-xs">
 	   	     <br>
-			   <a href="{{route('signin')}}"><button type="submit" class="btn btn-default center-block" style="width:200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登&nbsp;录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></a>
+			   <button type="button" onclick="location.href='{{route('signin')}}'" class="btn btn-default center-block" style="width:200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登&nbsp;录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 		   </div>
 		   <br/>
 		   
@@ -115,12 +135,12 @@
              <button type="submit" class="btn btn-default center-block" style="width:200px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
 			 
 			  <div class="Inbtns-open" align="center">
-				   <span class="glyphicon glyphicon-menu-down " data-toggle="collapse" href="#signup-buttons" aria-expanded="false" aria-controls="signup-buttons"></span>
+				   <span id="form-toggle" class="glyphicon glyphicon-menu-down " data-toggle="collapse" href="#signup-buttons" aria-expanded="false" aria-controls="signup-buttons"></span>
 			 </div>
 
-			 <div class="collapse" id="signup-buttons">
+			 <div class="collapse in" id="signup-buttons">
 				<input name="remember" type="checkbox">记住我
-				<a class="pull-right">忘记密码？</a>
+				<a class="pull-right" style="cursor: pointer">忘记密码？</a>
 			 </div>
 
 		 </form>    
@@ -151,9 +171,7 @@
 				  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					  <br/><br/>
 					  <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
-					     <a href="https://www.cnblogs.com/ustc-rjgc2017/">
-						  <button class="btn btn-default btn-block" style="font-size:22px">关于我们</button>
-						  </a>
+					  <button class="btn btn-default btn-block" onclick="location.href='https://www.cnblogs.com/ustc-rjgc2017/'" style="font-size:22px">关于我们</button>
 					  </div>
 					  <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10" align="center">
 						  <br/><br/>
