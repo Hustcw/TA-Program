@@ -17,6 +17,7 @@ Route::resource('/users', 'UsersController');
 Route::get('/signup','UsersController@create')->name('signup');//注册页面
 Route::post('/users/{users}/addcourse','CourseUsersController@store')->name('add.course');
 
+
 /*
 Route::get('/users', 'UsersController@index')->name('users.index');//
 Route::get('/users/{users}', 'UsersController@show')->name('users.show');//个人主页

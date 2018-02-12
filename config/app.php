@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         HyanCat\DirectMail\AliyunDirectMailServiceProvider::class,
         WangYan\DirectMail\DirectMailTransportProvider::class,
+
         /*
          * Package Service Providers...
          */

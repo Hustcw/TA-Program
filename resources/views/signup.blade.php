@@ -140,14 +140,14 @@
 					 <input  name="password_confirmation" type="password" class="form-control" id="确认密码"
 					 placeholder="请再次输入密码" maxlength="16" minlength="6">
 				 </div>
-				 <div align="center">
-				 <label class="radio-inline">
-					 <input type="radio" name="option" id="optionsRadios1" value="option1" checked>我是助教
-				 </label>
-				 <label class="radio-inline">
-					 <input type="radio" name="option" id="optionsRadios2"  value="option2"> 我是学生
-				 </label>
-				 </div>
+
+                 <div class="form-group">
+                     <label for="captcha">验证码</label>
+                         <input id="captcha" class="form-control" name="captcha" placeholder="请输入验证码"required>
+
+                         <img class="thumbnail captcha" src="{{ captcha_src('flat') }}"
+                              onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+                 </div>
 				 <br>
 				 <button type="submit" class="btn btn-default center-block" style="width:200px;">注&nbsp;册</button>
 			 </form>    

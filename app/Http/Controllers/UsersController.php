@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 use Rainwsy\Aliyunmail\Send\Single;
 use Auth;
-
+use phpCAS;
 
 class UsersController extends Controller
 {
@@ -34,8 +33,12 @@ class UsersController extends Controller
         $this->validate($request,[
             'username' => 'required|max:50',
             'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|confirmed|min:6|max:16'
-        ]);
+            'password' => 'required|confirmed|min:6|max:16',
+            'captcha' => 'required|captcha',
+        ], [
+        'captcha.required' => '验证码不能为空',
+        'captcha.captcha' => '请输入正确的验证码',
+    ]);
 
         $user = User::create([
             'username' => $request->username,
@@ -117,4 +120,5 @@ class UsersController extends Controller
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('users.show', ['user'=>$user]);
     }
+
 }
