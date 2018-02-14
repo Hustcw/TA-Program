@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TA</title>
@@ -12,7 +13,60 @@
     <link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
     <script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-table/dist/bootstrap-table.js" type="text/javascript"></script>
+    <script src="/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js" type="text/javascript"></script>
+    <link href="/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet">
+    <script src="/bootstrap-table/dist/extensions/editable/bootstrap-table-editable.js" type="text/javascript"></script>
+    <script src="/x-editable-develop/dist/bootstrap3-editable/js/bootstrap-editable.js" type="text/javascript"></script>
     <script src="/js/nav.js"></script>
+    <script src="/bootstrap-table/dist/extensions/export/bootstrap-table-export.js" type="text/javascript"></script>
+    <script src="/tableExport/tableExport.js" type="text/javascript"></script>
+   <script type="text/javascript">
+        $(document).ready(function(){
+            $('#StuTable').bootstrapTable({
+                columns: [{
+                    checkbox:true
+                },
+                    {
+                        field: 'StuNumber',
+                        title: '学生学号'
+                    }, {
+                        field: 'StuName',
+                        title: '学生姓名'
+                    }, {
+                        field: 'StuScore',
+                        title: '学生成绩',
+                        editable:{
+                            type:"text"
+                        }
+                    }],
+                url: "{{route('tasks.getJson',$task->id)}}",
+                onEditableSave:function (field,row,oldvalue,$el) {
+                    $.ajax({
+                        type: "post",
+                        url: "{{route("tasks.editgrade",$task->id)}}",
+                        data: row,
+                        dataType: 'json',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                        },
+                        success: function (data, status) {
+
+                        },
+                        error: function () {
+
+                           },
+                        complete: function () {
+
+                        }
+                    });
+                },
+                showExport:true,
+                exportDataType:'all',
+                exportTypes:['excel','json'] //导出文件类型
+            });
+        });
+    </script>
     <style>
         /* 以下实际使用若已初始化可删除 .nav height父级需逐级设置为100%*/
         body, html {
@@ -54,8 +108,8 @@
         <li class="nav-item1"><a href="javascript:;"><em class="my-icon nav-icon1 icon_1"></em><span>作业成绩</span><em
                         class="my-icon nav-more1"></em></a>
             <ul>
-                @foreach($tasks as $task)
-                <li><a href="{{route('tasks.showgrade',['user'=>Auth::user(),'$task'=>$task])}}"><span>{{$task->title}}</span></a></li>
+                @foreach($tasks as $t)
+                <li><a href="{{route('tasks.showgrade',['user'=>Auth::user(),'$task'=>$t])}}"><span>{{$t->title}}</span></a></li>
                 @endforeach
             </ul>
         </li>
@@ -121,6 +175,17 @@
 </nav>
 
 <br/><br/><br/><br/>
+
+<div class="container" z-index="-1">
+    <!--表格-->
+    <div class="row">
+        <div class="col-lg-offset-1 col-lg-11	col-md-offset-1 col-md-11 col-sm-offset-1 col-sm-11 col-xs-offset-2 col-xs-10">
+            <table id="StuTable" z-index="-1" dataclasses="table" data-undefined-text="-" data-striped="true"
+                   data-sort-order="asc" data-sort-stable="true" data-pagination="true" data-page-number="1"
+                   data-page-size="10" data-search="true"></table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

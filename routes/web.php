@@ -44,3 +44,8 @@ Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//
 Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库
 Route::get('users/{users}/courses/{courses}/tasks','TasksController@stshow')->name('tasks.stshow');//学生查询成绩页面
 
+Route::get('/users/{users}/grade','TasksController@grade')->name('tasks.grade');
+Route::get('/users/{users}/tasks/{task}/showgrade','TasksController@showgrade')->name('tasks.showgrade');
+Route::get('/getJson/tasks/{task}','TasksController@getJson')->name('tasks.getJson');
+Route::post('/editgrade/tasks/{task}','TasksController@editgrade')->name('tasks.editgrade');
+

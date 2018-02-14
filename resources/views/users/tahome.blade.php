@@ -143,6 +143,7 @@
 			  
 			    	<div class="el_pr col-lg-3 col-md-3 col-sm-3 col-xs-6" style="height: 100%">
 					<!-- el start -->
+						<a href="{{route("tasks.grade",$user->id)}}">
 					<div class="el">
 					  <div class="el__overflow">
 						<div class="el__inner">
@@ -162,6 +163,7 @@
 						</div>
 					  </div>
 					</div>
+						</a>
 						</div>
 					<!-- el end -->
 				
