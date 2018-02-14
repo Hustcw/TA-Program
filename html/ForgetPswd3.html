@@ -8,6 +8,50 @@
 <link rel="stylesheet" type="text/css" href="css/chinese_font.css"/>
 <script src="bootstrap/js/jquery-1.11.2.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<link href="bootstrapvalidator/dist/css/bootstrapValidator.min.css" rel="stylesheet">
+<script src="bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+<script>
+$(document).ready(function(){
+              $("#inputNewPSWD").bootstrapValidator({
+                  message:"未验证",
+                  feedbackIcons: {
+                      valid: 'glyphicon glyphicon-ok',
+                      invalid: 'glyphicon glyphicon-remove',
+                      validating: 'glyphicon glyphicon-refresh'
+                  },
+                  fields:{
+                      password:{
+                          message:"密码还未验证",
+                          validators:{
+                              notEmpty:"密码不能为空",
+                              stringLength:{
+                                  min:6,
+                                  max:16,
+                                  message:"密码长度在6到16之间"
+                              }
+                          }
+                      },
+                      password_confirmation:{
+                          message:"密码重复还未验证",
+                          validators:{
+                              notEmpty:{
+                                  message:"密码验证不可为空"
+                              },
+                              stringLength:{
+                                  min:6,
+                                  max:16,
+                                  message:"密码长度在6到16之间"
+                              },
+                              identical:{
+                                  field:"password",
+                                  message:"两次密码不同，请重新输入"
+                              }
+                          }
+                      }
+                  }
+              });
+          });
+	  </script>
 </head>
 
 <body style="background-color:rgba(226,226,226,1.00)">
@@ -75,13 +119,13 @@
 					<span>第三步</span>
 				</div>
 				
-				<form>
+				<form action="" method="" role="form" id="inputNewPSWD">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="请输入新密码">
+						<input type="text" class="form-control" name="password" placeholder="请输入新密码">
 					</div>
 					
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="请再次输入新密码">
+						<input type="text" class="form-control" name="password_confirmation" placeholder="请再次输入新密码">
 					</div>
 				
 					<div align="center" style="margin:30px">
