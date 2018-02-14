@@ -67,6 +67,14 @@
             });
         });
     </script>
+	<script type="text/javascript">
+		//关闭模态框
+		$(function(){
+			$('#close').click(function(){
+		        $('#AddNewHW').fadeOut("fast");
+	        });
+		});	
+	</script>
     <style>
         /* 以下实际使用若已初始化可删除 .nav height父级需逐级设置为100%*/
         body, html {
@@ -105,6 +113,9 @@
         </div>
     </div>
     <ul>
+		<li class="nav-item1" style="height:45px">
+			<a href="javascript:;" data-toggle="modal" data-target="#AddNewGrade"><em class="my-icon nav-icon1 icon_3"></em><span>添加新成绩</span></a>
+        </li>
         <li class="nav-item1"><a href="javascript:;"><em class="my-icon nav-icon1 icon_1"></em><span>作业成绩</span><em
                         class="my-icon nav-more1"></em></a>
             <ul>
@@ -187,5 +198,48 @@
     </div>
 </div>
 
+	<!--添加新成绩-->
+ <div class="modal fade" id="AddNewGrade" role="dialog" tabindex="-1" data-show="false" aria-hidden="true" style="position:fixed">
+	  <div >
+		  <div class="container-fluid">
+			  <div class="row">
+				   <div style="height:100px"></div>
+					  <div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+						<div class="panel panel-default"> 
+							<div class="panel-heading" >
+							  <a id="close">
+								 <span class="glyphicon glyphicon-remove" data-dismiss="modal"></span>
+							  </a>
+							</div>
+
+							<div class="panel-body">						
+								<form role="form" method="" action="">
+									<br/>
+									<div class="input-group">
+										<span class="input-group-addon" style="font-family:chinese2">成绩单名</span>
+										<input type="text" class="form-control" placeholder="请输入任务名称">
+									</div>
+									
+									<div style="margin:15px">
+										<span class="pull-left">成绩类型：&nbsp;&nbsp;&nbsp;</span>
+										<input type="radio" name="" value="option1" > 考试
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="radio" name="" value="option1" > 作业
+									    <br/>
+									</div>
+										
+									
+									<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+										<button type="submit" class="btn btn-primary btn-block" id="submit">提交</button>
+									</div>
+								    </div>
+								</form>
+							</div>
+						</div>
+					 </div>
+			  </div>
+		  </div>
+	  </div>
+  
 </body>
 </html>
