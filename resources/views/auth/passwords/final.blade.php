@@ -6,11 +6,39 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/css/ForgetPswd.css" />
     <link rel="stylesheet" type="text/css" href="/css/chinese_font.css"/>
+    <style>
+        .Pswd-success>span
+        {
+            color:darkcyan;
+            font-size:30px;
+        }
+        .Pswd-return>p
+        {
+            margin-top: 12px;
+            font-family: chinese2;
+            font-size:15px;
+        }
+
+    </style>
     <script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        var c=5;
+        var t;
+        function timedCount()
+        {
+            if(c===0)
+            {
+                window.location.href="https://ustcta.com";
+            }
+            document.getElementById("CountNum").innerHTML=c+"";
+            c=c-1;
+            t=setTimeout("timedCount()",1000);
+        }
+    </script>
 </head>
 
-<body style="background-color:rgba(226,226,226,1.00)">
+<body style="background-color:rgba(226,226,226,1.00)" onpageshow="timedCount()">
 <!--顶导航栏-->
 <div class="nav nav-pills navbar-fixed-top" style="z-index:1;background-color:#222222">
     <div class="container-fluid" style="padding-left:5%;padding-right:5%">
@@ -28,10 +56,8 @@
     <!--circle-->
     <div class="row">
         <div class="hidden-xs" style="height:100px"></div>
-
-        <div class="visible-xs col-xs-4"></div>
-        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 col-xs-4" align="center">
-            <div class="circle1-active">
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 hidden-xs" align="center">
+            <div class="circle1-done">
                 <div class="circle2">
                     <span class="circle-num">1</span>
                 </div>
@@ -40,7 +66,7 @@
         </div>
 
         <div class="col-lg-2 col-md-2  col-sm-2  hidden-xs" align="center">
-            <div class="circle1">
+            <div class="circle1-done">
                 <div class="circle2">
                     <span class="circle-num">2</span>
                 </div>
@@ -49,7 +75,7 @@
         </div>
 
         <div class=" col-lg-2 col-md-2  col-sm-2  hidden-xs" align="center">
-            <div class="circle1">
+            <div class="circle1-done">
                 <div class="circle2">
                     <span class="circle-num">3</span>
                 </div>
@@ -57,8 +83,9 @@
             </div>
         </div>
 
-        <div class=" col-lg-2 col-md-2 col-sm-2  hidden-xs" align="center">
-            <div class="circle1">
+        <div class="visible-xs col-xs-4"></div>
+        <div class=" col-lg-2 col-md-2 col-sm-2  col-xs-4" align="center">
+            <div class="circle1-active">
                 <div class="circle2">
                     <span class="circle-num">4</span>
                 </div>
@@ -73,31 +100,16 @@
     <div class="row">
         <div class="col-lg-offset-4 col-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8">
             <div class="step text-center">
-                <span>第一步</span>
+                <span>第四步</span>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                {{ csrf_field() }}
-
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
-                    <div class="form-group">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div align="center" style="margin:30px">
-                        <button type="submit" id="continue" class="btn btn-default ">
-                            &nbsp;&nbsp;继&nbsp;续&nbsp;&nbsp;
-                        </button>
-                    </div>
+            <div class="Pswd-success text-center">
+                <span class="glyphicon glyphicon-ok-sign"></span><br/>
+                <div class="Pswd-return">
+                    <p> 您已成功修改密码</p>
+                    <p>页面将在<span id="CountNum"></span>秒后跳回主页</p>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 

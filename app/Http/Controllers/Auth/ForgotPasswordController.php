@@ -29,4 +29,9 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showWaitPage()
+    {
+        return view('auth.passwords.wait');
+    }
 }

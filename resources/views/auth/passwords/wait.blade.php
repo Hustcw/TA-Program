@@ -6,6 +6,13 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/css/ForgetPswd.css" />
     <link rel="stylesheet" type="text/css" href="/css/chinese_font.css"/>
+    <style>
+        .check-email>span
+        {
+            color:steelblue;
+            font-size:30px;
+        }
+    </style>
     <script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -26,12 +33,17 @@
 <!--main-->
 <div class="container" style="margin-top:100px">
     <!--circle-->
+
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
     <div class="row">
         <div class="hidden-xs" style="height:100px"></div>
-
-        <div class="visible-xs col-xs-4"></div>
-        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 col-xs-4" align="center">
-            <div class="circle1-active">
+        <div class="col-lg-offset-2 col-lg-2 col-md-offset-2 col-md-2 col-sm-offset-2 col-sm-2 hidden-xs" align="center">
+            <div class="circle1-done">
                 <div class="circle2">
                     <span class="circle-num">1</span>
                 </div>
@@ -39,8 +51,10 @@
             </div>
         </div>
 
-        <div class="col-lg-2 col-md-2  col-sm-2  hidden-xs" align="center">
-            <div class="circle1">
+        <div class="visible-xs col-xs-4"></div>
+
+        <div class="col-lg-2 col-md-2  col-sm-2  col-xs-4" align="center">
+            <div class="circle1-active">
                 <div class="circle2">
                     <span class="circle-num">2</span>
                 </div>
@@ -48,7 +62,7 @@
             </div>
         </div>
 
-        <div class=" col-lg-2 col-md-2  col-sm-2  hidden-xs" align="center">
+        <div class=" col-lg-2 col-md-2  col-sm-2 hidden-xs" align="center">
             <div class="circle1">
                 <div class="circle2">
                     <span class="circle-num">3</span>
@@ -71,36 +85,17 @@
     <!--form-->
     <br/><br/><br/><br/>
     <div class="row">
-        <div class="col-lg-offset-4 col-4 col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-4 col-xs-offset-2 col-xs-8">
+        <div class="col-lg-offset-3 col-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
             <div class="step text-center">
-                <span>第一步</span>
+                <span>第二步</span>
             </div>
 
-            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                {{ csrf_field() }}
-
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
-                    <div class="form-group">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <div align="center" style="margin:30px">
-                        <button type="submit" id="continue" class="btn btn-default ">
-                            &nbsp;&nbsp;继&nbsp;续&nbsp;&nbsp;
-                        </button>
-                    </div>
-                </div>
-            </form>
+            <div class="check-email" align="center">
+                <span class="glyphicon glyphicon-envelope"></span><br/>
+                <p style="margin-top:10px">我们已向您的邮箱中发送身份验证邮件，请在24小时之内查收。并点击邮件内地址进入找回密码的下一步操作。</p>
+            </div>
         </div>
     </div>
-
 </div>
 </body>
 </html>
