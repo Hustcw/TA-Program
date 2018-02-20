@@ -140,7 +140,7 @@
 
 			 <div class="collapse in" id="signup-buttons">
 				<input name="remember" type="checkbox">记住我
-				<a class="pull-right" style="cursor: pointer">忘记密码？</a>
+				<a class="pull-right" style="cursor: pointer" href="{{route('password.request')}}">忘记密码？</a>
 			 </div>
 
 		 </form>    
