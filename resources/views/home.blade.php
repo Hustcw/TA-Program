@@ -114,8 +114,8 @@
 			   {{csrf_field()}}
 
 	         <div class="form-group">
-				 <label for="邮箱">邮箱</label>
-				 <input  name="email" type="text" class="form-control" id="邮箱" placeholder="email" value="{{old('email')}}">
+				 <label for="email">邮箱：</label>
+				 <input type="text" name="email" class="form-control" value="{{ old('email') }}">
 			 </div> 
 	
 			 <div class="form-group">
@@ -125,10 +125,10 @@
 			 </div>
              <div align="center">
              <label class="radio-inline">
-                 <input type="radio" name="identity" id="optionsRadios3" value="1" checked>我是助教
+                 <input type="radio" name="identity" id="optionsRadios3" value="1" >我是助教
              </label>
              <label class="radio-inline">
-                 <input type="radio" name="identity" id="optionsRadios4"  value="0"> 我是学生
+                 <input type="radio" name="identity" id="optionsRadios4"  value="0" checked> 我是学生
              </label>
 		     </div>
 			 <br/>

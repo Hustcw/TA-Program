@@ -25,6 +25,8 @@ class SessionsController extends Controller
 
     public function store(Request $request)
     {
+        $request->flashOnly(['email']);
+
         $credentials = $this->validate($request, [
             'email' => 'required|email|max:255',
             'password' => 'required',
