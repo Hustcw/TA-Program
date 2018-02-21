@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*nav*/
+.navbar-brand
+{
+	font-family:Tekton Pro;
+	padding-top:20px;
+	font-size:40px;
+	letter-spacing: 5px;
+}
