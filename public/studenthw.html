@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,  user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Welcome To Your TA</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/studenthw.css" />
+    <link rel="stylesheet" type="text/css" href="css/chinese_font.css" />
+	  <script src="bootstrap/js/jquery-1.11.2.min.js"></script>
+	<script src="js/studenthw.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+  </head>
+  <body  data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+	  
+   <!--顶导航栏-->
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" style="z-index:1">
+	  <div class="container-fluid" style="padding-left: 10%;padding-right:10%">
+		<!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#TAstudent" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+			<a class="navbar-brand" style="color:aliceblue;" href="#">TAT</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="TAstudent">
+		  <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">你的课程 <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">数据结构</a></li>
+				<li><a href="#">线性电子电路</a></li>
+				<li><a href="#">数字逻辑电路</a></li>
+				<li><a href="#">c++程序设计</a></li>
+				<li>
+					<a href="#" data-toggle="modal" data-target="#myModal">
+					<span class="glyphicon glyphicon-plus"></span>
+					&nbsp;添加课程</a>
+				</li>
+			  </ul>
+			</li>
+		  </ul>
+			
+		  
+			
+		  <ul class="nav navbar-nav navbar-right">
+			 <li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				  <li><a href="#">修改个人信息</a></li>
+				  <li><a href="#">设置提醒方式</a></li>
+				  <li><a href="#">退出登录</a></li>
+			  </ul>
+			 </li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	 
+	<div class="container-fluid" style="margin-top:90px">
+		<div class="row">
+		<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs" id="myScrollspy" >
+		<ul class="nav nav-tabs nav-stacked"   data-spy="affix">
+	     <li class="active" align="center"><a href="#task">我的任务</a></li>
+	     <li align="center"><a href="#grade" >我的成绩</a></li>
+		 <li align="center"><a href="#feedback" >我的反馈</a></li>
+	    </ul>
+		</div>
+			
+		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+	    <div class="title" >
+		   <span>我的任务</span>
+	    </div> 
+        <div id="task" class="container-fluid" style="padding-top:50px;padding-bottom: 50px">
+		    <div class="row panel-group" id="accordion">
+			
+			<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+				
+					<div class="hm-btn row" >
+						<div class="panel">					
+							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
+								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
+								  <span class="glyphicon glyphicon-paperclip"></span>
+								</div> 
+							</div>
+							
+							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
+								<div class="row">
+									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+										<span  style="font-size:18px;display:block">第一次作业</span>
+								        <span  style="font-size:10px;display:block">截止日期：</span>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+									     <span class="glyphicon glyphicon-list"></span>
+								        </a>
+									</div>
+								</div>   
+   						   </div>
+			        </div>
+			       </div>
+					
+					<div id="collapse1" class="panel-collapse collapse">
+						<div class="panel-body">
+							作业内容
+						</div>
+                    </div>
+					
+				    <div class="hm-btn row" >
+						<div class="panel">				
+							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
+								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
+								  <span class="glyphicon glyphicon-paperclip"></span>
+								</div> 
+							</div>
+							
+							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
+								<div class="row">
+									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+										<span  style="font-size:18px;display:block">第二次作业</span>
+								        <span  style="font-size:10px;display:block">截止日期：</span>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+									     <span class="glyphicon glyphicon-list"></span>
+								        </a>
+									</div>
+								</div>   
+   						   </div>
+			         </div>
+			       </div>
+					
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+							作业内容
+						</div>
+                    </div>
+					
+				
+			</div>
+			
+			<div class="col-lg-offset-2 col-lg-5 col-md-offset-2 col-md-5 col-sm-6 col-xs-12">
+				 <div class="hm-btn row" >
+						<div class="panel">					
+							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
+								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
+								  <span class="glyphicon glyphicon-paperclip"></span>
+								</div> 
+							</div>
+							
+							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10">
+								<div class="row">
+									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+										<span  style="font-size:18px;display:block">第三次作业</span>
+								        <span  style="font-size:10px;display:block">截止日期：</span>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+									     <span class="glyphicon glyphicon-list"></span>
+								        </a>
+									</div>
+								</div>   
+   						   </div>
+			        </div>
+			       </div>
+					
+					<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body">
+							作业内容
+						</div>
+                    </div>
+			</div>
+			</div>
+	   </div>
+			
+			
+			
+			
+		<div class="title">
+		   <span>我的成绩</span>
+	    </div>  
+			
+		<div id="grade" style="padding-top:50px;padding-bottom:50px">
+			<table class="table table-responsive table-hover table-striped" >
+			<thead>
+				<tr>
+				<th>id</th>
+					<th>任务名称</th>
+					<th>截止时间</th>
+					<th>成绩</th>
+				</tr>
+			 </thead>
+		     <tbody>
+			     <tr>
+					 <td>1</td>
+					 <td>第一次作业</td>
+					 <td>2017-01-01 00:00:00</td>
+					 <td>90</td>
+				 </tr>
+				 <tr>
+					 <td>2</td>
+					 <td>第二次作业</td>
+					 <td>2017-01-02 00:00:00</td>
+					 <td>91</td>
+				 </tr>
+				 <tr>
+					 <td>3</td>
+					 <td>第三次作业</td>
+					 <td>2017-01-03 00:00:00</td>
+					 <td>92</td>
+				 </tr>
+				 <tr>
+					 <td>4</td>
+					 <td>第四次作业</td>
+					 <td>2017-01-03 00:00:00</td>
+					 <td>92</td>
+				 </tr>
+				 <tr>
+					 <td>5</td>
+					 <td>第五次作业</td>
+					 <td>2017-01-03 00:00:00</td>
+					 <td>92</td>
+				 </tr>
+				 <tr>
+					 <td>6</td>
+					 <td>第六次作业</td>
+					 <td>2017-01-03 00:00:00</td>
+					 <td>92</td>
+				 </tr>
+				 <tr>
+					 <td>7</td>
+					 <td>第七次作业</td>
+					 <td>2017-01-03 00:00:00</td>
+					 <td>92</td>
+				 </tr>
+			 </tbody>
+			</table>
+		</div>
+		 
+			
+			
+			
+		
+		<div class="title" >
+		   <span>我的反馈</span>	
+		</div>
+		<div id="feedback" style="padding-top:100px;padding-bottom: 50px">
+			
+		</div>
+	  </div>
+		</div>
+	  </div>
+	</body>
+</html>
