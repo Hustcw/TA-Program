@@ -15,6 +15,13 @@ class CoursesController extends Controller
         ]);
     }
 
+    public function show(User $user)
+    {
+        $courses=$user->courses()->paginate();
+        $data=Course::all();
+        return view('course',compact('courses','data','user'));
+    }
+
     public function bindcourse(User $user,Request $request)
     {
         $this->validate($request,[

@@ -96,4 +96,14 @@ class User extends Authenticatable
             return '还没有成绩哦';
         }
     }
+
+    public function deletecourse($course_ids)
+    {
+        if(!is_array($course_ids)){
+            $course_ids=compact('course_ids');
+        }
+        $this->courses()->detach($course_ids);
+    }
+
+
 }

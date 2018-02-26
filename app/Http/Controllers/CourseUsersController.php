@@ -24,6 +24,14 @@ class CourseUsersController extends Controller
         }
 
         session()->flash('success','课程添加成功');
-        return redirect()->route('users.show',Auth::user()->id);
+        return redirect()->back()->with(['user'=>$user]);
+    }
+
+    public function destroy(Request $request,User $user)
+    {
+        Auth::user()->deletecourse($request->course_id);
+
+        session()->flash('success', '课程删除成功');
+        return redirect()->back()->with(['user' => $user]);
     }
 }

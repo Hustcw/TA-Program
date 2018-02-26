@@ -46,6 +46,8 @@ Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('conf
 
 Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.store');//提交课程信息处理
 Route::patch('/courses/{users}', 'CoursesController@update')->name('courses.update');//课程信息更新
+Route::get('/courses/{users}','CoursesController@show')->name('courses.show');//展示课程信息
+Route::delete('/courses/{users}','CourseUsersController@destroy')->name('course.delete');
 
 
 Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
