@@ -22,4 +22,12 @@ class Task extends Model
     {
         return $this->belongsTo(Course::Class,'course_id','course_id');
     }
+
+    public function binduser($user_ids)
+    {
+        if(!is_array($user_ids)){
+            $user_ids=compact('$user_ids');
+        }
+        $this->tasks()->sync($user_ids,false);
+    }
 }

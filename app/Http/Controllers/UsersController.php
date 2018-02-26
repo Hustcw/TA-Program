@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
-use Rainwsy\Aliyunmail\Send\Single;
 use Auth;
 use App\Mail\ActivateEmail;
+
 
 class UsersController extends Controller
 {
@@ -55,6 +55,7 @@ class UsersController extends Controller
     {
         $this->authorize('verify',$user);
         $courses=$user->courses()->paginate();
+
         if($user->is_ta && session('identity')) return view('users.tahome',compact('user'));
         return view('users.sthome',compact('user','courses'));
     }

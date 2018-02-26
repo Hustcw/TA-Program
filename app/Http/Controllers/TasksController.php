@@ -27,7 +27,7 @@ class TasksController extends Controller
     public function stshow(User $user, Course $course)
     {
         $tasks = Task::where('course_id', $course->course_id)->get();
-        return view('users.query', compact('user', 'tasks'));
+        return view('users.stquery', compact('user', 'tasks'));
     }
 
     public function addtask(User $user, Request $request)
@@ -38,13 +38,18 @@ class TasksController extends Controller
             'deadline' => 'date',
         ]);
 
-        Task::create([
+        $task=Task::create([
             'course_id' => $request->ta_course,
             'title' => $request->title,
             'content' => $request->taskcontent,
             'deadline' => $request->deadline,
-
         ]);
+
+        $course=$user->assistant_course();
+        $users=$course->users()->get();
+        foreach ($users as $user){
+            $user->bindtask($task->id);
+        }
 
         session()->flash('success', '发布任务成功！');
         return redirect()->back();

@@ -57,3 +57,6 @@ Route::get('/users/{users}/tasks/{task}/showgrade','TasksController@showgrade')-
 Route::get('/getJson/tasks/{task}','TasksController@getJson')->name('tasks.getJson');
 Route::post('/editgrade/tasks/{task}','TasksController@editgrade')->name('tasks.editgrade');
 
+
+
+

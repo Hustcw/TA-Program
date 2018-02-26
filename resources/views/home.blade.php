@@ -115,13 +115,13 @@
 
 	         <div class="form-group">
 				 <label for="email">邮箱：</label>
-				 <input type="text" name="email" class="form-control" value="{{ old('email') }}">
+				 <input type="text" name="email" class="form-control" placeholder="请输入邮箱" value="{{ old('email') }}">
 			 </div> 
 	
 			 <div class="form-group">
 				 <label for="密码">密码</label>
 				 <input  name="password" type="password" class="form-control" id="密码"
-				 placeholder="password">
+				 placeholder="请输入密码">
 			 </div>
              <div align="center">
              <label class="radio-inline">

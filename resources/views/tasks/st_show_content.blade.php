@@ -1,6 +1,6 @@
 @foreach($tasks as $task)
     <div class="hm-btn row" >
-        <div >
+        <div class="panel">
             <div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
                     <span class="glyphicon glyphicon-paperclip"></span>
@@ -22,6 +22,7 @@
             </div>
         </div>
     </div>
+
     <div id="collapse{{$task->id}}" class="panel-collapse collapse">
         <div class="panel-body">
             {{$task->content}}
