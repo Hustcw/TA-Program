@@ -69,27 +69,26 @@
 				  <div class="row">
 					<div class="wr-info col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					   <div class="sm-title">
-						<span >真实信息绑定</span><span style="color:#9A292B">(必填项)</span>
+						<span >真实信息填写</span><span style="color:#9A292B">(必填项)</span>
 					   </div>
-						<form role="form">
+						<form action="{{route('users.update',Auth::user()->id)}}" method="POST" role="form">
+							{{ method_field('PATCH') }}
+							{{ csrf_field() }}
+
 							 <div class="input-group">
 								<span class="input-group-addon">真实姓名</span>
-								<input name="realname" type="text" class="form-control" placeholder="姓名" >
+								<input name="realname" type="text" class="form-control" placeholder="姓名" value="{{$user->realname}}">
 							</div>
 							<br>
 							<div class="input-group">
 								<span class="input-group-addon">学号</span>
-								<input type="text" class="form-control" placeholder="学号" >
+								<input type="text" name="student_id" class="form-control" placeholder="学号" value="{{$user->student_id}}">
 							</div>
 							<br>
 							<div class="input-group">
-								<div>
-									<button class="btn btn-primary">点击验证学号&nbsp;<span class="glyphicon glyphicon-link"></span>&nbsp;</button>
-									&nbsp;&nbsp;&nbsp;&nbsp;
-									<button class="btn btn-default" type="submit">
-										提交绑定
-									</button>
-								</div>
+								<button class="btn btn-default" type="submit">
+									提交修改
+								</button>
 							</div>
 						</form>
 					</div>
@@ -147,9 +146,6 @@
 			  </div>
 				<br/><br/>
 			<div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-				<form action="{{route('courses.store',['user'=>Auth::user()])}}" method="POST" role="form">
-					{{csrf_field()}}
-
 
 					<div class="input-group">
 						<span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
@@ -168,11 +164,10 @@
 					</div>
 					<br>
 					<div>
-					     <button class="btn btn-primary" type="submit">
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交课堂信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 </button>
+					     <a href="#"> <button class="btn btn-primary" type="submit">
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选取助教课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 </button></a>
 					</div>
-				</form>
 		</div>
 		  </div>
 	    </div>

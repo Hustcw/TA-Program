@@ -46,7 +46,9 @@ class TasksController extends Controller
         ]);
 
         $course=$user->assistant_course();
+
         $users=$course->users()->get();
+
         foreach ($users as $user){
             $user->bindtask($task->id);
         }

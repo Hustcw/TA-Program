@@ -70,11 +70,18 @@ class UsersController extends Controller
     {
         $this->validate($request, [
             'username' => 'nullable|max:50',
-            'password' => 'nullable|confirmed|min:6'
+            'password' => 'nullable|confirmed|min:6',
+            'phonenumber'=>'nullable|max:15',
         ]);
 
         $this->authorize('verify',$user);
         $data = [];
+        if($request->student_id){
+            $data['student_id']=$request->student_id;
+        }
+        if($request->realname){
+            $data['realname']=$request->realname;
+        }
         if($request->username) {
             $data['username'] = $request->username;
         }
