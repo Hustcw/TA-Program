@@ -64,28 +64,10 @@
         <div class="collapse navbar-collapse" id="TAstudent">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">你的课程 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        @foreach($courses as $course)
-                            <li>
-                                <a href="#">{{$course->course_name}}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                &nbsp;添加课程</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
-                        <li><a href="#">设置提醒方式</a></li>
+                        <li><a href="{{route('users.show',Auth::user()->id)}}">个人主页</a></li>
                         <li>
                             <form action="{{ route('signout') }}" method="POST">
                                 {{ csrf_field() }}
@@ -111,54 +93,6 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="panel-group" id="chooseCourse">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#chooseCourse" href="#collapseOne">
-                                    我已选择的课程
-                                </a>
-                            </h4>
-                        </div>
-
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-
-                                <table id="Chosen" z-index="-1" data-toggle="table" dataclasses="table" data-undefined-text="-" data-striped="true"
-                                       data-sort-order="asc" data-sort-stable="true" data-pagination="true" data-page-number="1"
-                                       data-page-size="10">
-                                    <thead>
-                                    <tr>
-                                        <th>课程号</th>
-                                        <th>课程名称</th>
-                                        <th>任课教师</th>
-                                        <th>删除课程</th>
-                                    </tr>
-                                    </thead>
-
-
-                                    <tbody>
-                                    @foreach($courses as $course)
-
-                                    <tr>
-                                        <td>{{$course->course_id}}</td>
-                                        <td>{{$course->course_name}}</td>
-                                        <td>{{$course->teacher}}</td>
-
-                                        <td><form action="{{route('course.delete',['users'=>Auth::user()])}}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                                <input type="hidden" value="{{$course->id}}" name="course_id">
-                                                <button type="submit" class="btn btn-default">删除选课</button>
-                                        </form></td>
-                                    </tr>
-                                    @endforeach
-
-                                    </tbody>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -170,7 +104,7 @@
                         </div>
 
                         <div id="collapseTwo" class="panel-collapse collapse in">
-                                <div class="panel-body">
+                            <div class="panel-body">
                                 <table id="AllCourse" z-index="-1" data-toggle="table" dataclasses="table" data-undefined-text="-" data-striped="true"
                                        data-sort-order="asc" data-sort-stable="true" data-pagination="true" data-page-number="1"
                                        data-page-size="10" data-search="true" >
@@ -187,12 +121,12 @@
                                     <!--未加入选课样式-->
                                     <tr>
                                     @foreach($data as $dd)
-                                        @if($user->hasCourse($dd->id))
+                                        @if($user->ta_course === $dd->course_id)
                                             <tr>
                                                 <td>{{$dd->course_id}}</td>
                                                 <td>{{$dd->course_name}}</td>
                                                 <td>{{$dd->teacher}}</td>
-                                                <td><button type="submit" class="btn btn-default" disabled="disabled">删除选课</button></td>
+                                                <td><button type="submit" class="btn btn-default" disabled="disabled">已选中</button></td>
                                             </tr>
 
                                         @else
@@ -201,11 +135,12 @@
                                                 <td>{{$dd->course_name}}</td>
                                                 <td>{{$dd->teacher}}</td>
 
-                                                <td><form action="{{route('add.course',['user'=>Auth::user()])}}" method="POST" role="form">
-                                                    {{csrf_field()}}
-                                                    <input name="course_id" type="hidden" class="form-control" value="{{$dd->course_id}}">
-                                                    <button type="submit" class="btn btn-default" >选课</button>
-                                                </form></td>
+                                                <td><form action="{{route('course.selectcourse',['user'=>Auth::user()])}}" method="POST" role="form">
+                                                        {{csrf_field()}}
+                                                        {{ method_field('PATCH') }}
+                                                        <input name="course_id" type="hidden" class="form-control" value="{{$dd->course_id}}">
+                                                        <button type="submit" class="btn btn-default" >选课</button>
+                                                    </form></td>
                                             </tr>
 
                                         @endif

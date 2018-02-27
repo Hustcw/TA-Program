@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
@@ -114,6 +115,20 @@ class UsersController extends Controller
         Auth::login($user);
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('users.show', ['user'=>$user]);
+    }
+
+    public function select(User $user)
+    {
+        $data=Course::all();
+        return view('selectcourse',compact('user','data'));
+    }
+
+    public function selectcourse(User $user,Request $request)
+    {
+        $user->ta_course=$request->course_id;
+        $user->save();
+        session()->flash('info','绑定课程成功!');
+        return redirect()->route('users.edit',Auth::user()->id);
     }
 
 }

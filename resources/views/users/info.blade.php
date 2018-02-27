@@ -34,8 +34,6 @@
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
 			  <ul class="dropdown-menu">
 				<li><a href="#">发布任务</a></li>
-				<li><a href="#">反馈</a></li>
-				<li><a href="#">Something else here</a></li>
 			  </ul>
 			</li>
 		  </ul>
@@ -149,22 +147,22 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
-						<input name="course_id" type="text" class="form-control" placeholder="请输入课堂号" value="{{$user->ta_course}}">
+						<input name="course_id" type="text" class="form-control"  value="{{$user->ta_course}}">
 					</div>
 					<br>
 					<div class="input-group">
 
 						<span class="input-group-addon">课程名称</span>
-						<input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->assistant_course()->course_name}}">
+						<input name="course_name" type="text" class="form-control"  value="{{$user->assistant_course()->course_name}}">
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon">任课教师</span>
-						<input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->assistant_course()->teacher}}">
+						<input name="teacher" type="text" class="form-control"  value="{{$user->assistant_course()->teacher}}">
 					</div>
 					<br>
 					<div>
-					     <a href="#"> <button class="btn btn-primary" type="submit">
+					     <a href="{{route('course.select',Auth::user()->id)}}"> <button class="btn btn-primary" type="submit">
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选取助教课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 </button></a>
 					</div>
@@ -179,33 +177,27 @@
                         </div>
                         <br/><br/>
                         <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-                            <form action="{{route('courses.update',['user'=>Auth::user()])}}" method="POST" role="form">
-                                {{ method_field('PATCH') }}
-                                {{csrf_field()}}
-
-
                                 <div class="input-group">
                                     <span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
-                                    <input name="course_id" type="text" class="form-control" placeholder="请输入课堂号" value="{{$user->ta_course}}">
+                                    <input name="course_id" type="text" class="form-control" value="{{$user->ta_course}}" disabled >
                                 </div>
                                 <br>
                                 <div class="input-group">
 
                                     <span class="input-group-addon">课程名称</span>
-                                    <input name="course_name" type="text" class="form-control" placeholder="请输入课程名称" value="{{$user->assistant_course()->course_name}}">
+                                    <input name="course_name" type="text" class="form-control" value="{{$user->assistant_course()->course_name}}"disabled >
                                 </div>
                                 <br>
                                 <div class="input-group">
                                     <span class="input-group-addon">任课教师</span>
-                                    <input name="teacher" type="text" class="form-control" placeholder="请输入任课教师" value="{{$user->assistant_course()->teacher}}">
+                                    <input name="teacher" type="text" class="form-control"  value="{{$user->assistant_course()->teacher}}"disabled >
                                 </div>
                                 <br>
                                 <div>
-                                    <button class="btn btn-primary" type="submit">
+                                    <a href="{{route('course.select',Auth::user()->id)}}"> <button class="btn btn-primary" type="submit">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交课堂信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </button>
+                                    </button></a>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
