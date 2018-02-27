@@ -85,7 +85,6 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
-                        <li><a href="#">设置提醒方式</a></li>
                         <li>
                             <form action="{{ route('signout') }}" method="POST">
                                 {{ csrf_field() }}

@@ -29,18 +29,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">发布任务</a></li>
-                        <li><a href="#">反馈</a></li>
-                        <li><a href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
                 <li >
                     <a href="{{route('users.show',$user->id)}}" role="button">个人中心</a>
                 </li>
