@@ -117,7 +117,7 @@
 		  <div class="cont__inner"  style="height: 100%">
               <div class="row" style="height: 100%">
 					<!-- el start -->
-				 <div class="el_pr col-lg-3 col-md-3 col-sm-3 col-xs-6" style="height: 100%">
+				 <div class="el_pr col-lg-offset-3 col-lg-3 col-md-offset-3 col-md-3 col-sm-offset-3 col-sm-3 col-xs-6" style="height: 100%">
 					 <a href="{{route('tasks.show',$user->id)}}">
 					<div class="el">
 					  <div class="el__overflow">
@@ -168,49 +168,6 @@
 					<!-- el end -->
 				
 			  
-			    	<div class="el_pr col-lg-3 col-md-3 col-sm-3 col-xs-6" style="height: 100%" >
-					<!-- el start -->
-					<div class="el">
-					  <div class="el__overflow">
-						<div class="el__inner">
-						  <div class="el__bg"></div>
-						  <div class="el__preview-cont">
-							<h2 style="font-size: 80px"><span class="glyphicon glyphicon-search" style="height:40px;width:40px;color:white"></span></h2>
-							<h2 class="el__heading" style="font-size: 40px">&nbsp;&nbsp;查&nbsp;询</h2>
-						  </div>
-						</div>
-					  </div>
-					  <div class="el__index">
-						<div class="el__index-back">3</div>
-						<div class="el__index-front">
-						  <div class="el__index-overlay" data-index="3">3</div>
-						</div>
-					  </div>
-					</div>
-						</div>
-					<!-- el end -->
-				  
-					<div class="el_pr col-lg-3 col-md-3 col-sm-3 col-xs-6" style="height: 100%">
-					<!-- el start -->
-					<div class="el">
-					  <div class="el__overflow">
-						<div class="el__inner">
-						  <div class="el__bg"></div>
-						  <div class="el__preview-cont">
-							<h2 style="font-size: 80px"><span class="glyphicon glyphicon-thumbs-up" style="height:40px;width:40px;color:white"></span></h2>
-							<h2 class="el__heading" style="font-size: 40px">&nbsp;&nbsp;反&nbsp;馈</h2>
-						  </div>
-						</div>
-					  </div>
-					  <div class="el__index">
-						<div class="el__index-back">4</div>
-						<div class="el__index-front">
-						  <div class="el__index-overlay" data-index="4">4</div>
-						</div>
-					  </div>
-					</div>
-						</div>
-					<!-- el end -->
 		  <!-- cont inner end -->
 		</div>
 	  </div>

@@ -167,7 +167,7 @@
 				  </div>
 				  <!--TAT-->
 				  <div class="sign">
-				  <span style="color:aqua" id="beatText1">T</span><span class="hidden-xs" id="beatText2">eaching </span><span style="color:aqua" id="beatText3">A</span><span class="hidden-xs" id="beatText4">ssis</span><span style="color:aqua" id="beatText5">T</span><span id="beatText6" class="hidden-xs">ance</span>
+				  <span style="color:aqua" id="beatText1">T</span><span class="hidden-xs" id="beatText2">eaching </span><span style="color:aqua" id="beatText3">A</span><span class="hidden-xs" id="beatText4">ssis</span><span style="color:aqua" id="beatText5">T</span><span id="beatText6" class="hidden-xs">ant</span>
 				  </div>
 				  <div style="background-color:#2B3138;color:rgba(153,153,153,1.00);position:relative;top:-50px">
 					<h1>欢迎你登陆学生端!</h1>
