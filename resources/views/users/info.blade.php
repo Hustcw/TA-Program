@@ -34,7 +34,7 @@
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
 			  <ul class="dropdown-menu">
-				<li><a href="#">发布任务</a></li>
+				<li><a href="{{route('tasks.show',Auth::user()->id)}}">发布任务</a></li>
 			  </ul>
 			</li>
 		  </ul>
