@@ -1,3 +1,24 @@
+.navbar-brand
+{
+	font-family:Tekton Pro;
+	padding-top:20px;
+	letter-spacing: 5px;
+}
+
+.signupbtn
+{
+	font-size:19px;
+	font-family:chinese2;
+	color:aqua;
+}
+
+.signupbtn:hover
+{
+	color:white;
+	background-color:#222222;
+	text-decoration: none;
+}
+
 body{
   background-color:#FFFFFF;
 }

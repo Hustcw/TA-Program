@@ -19,12 +19,17 @@
     <![endif]-->
 </head>
 <body>
-    <ul>
-        <b><li><a href="{{route('homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li></b>
-        <b><li><a class="orange" href="{{route('signup')}}">注册</a></li></b>
-       <!-- <b><li><a>帮助</a></li></b>
-        <b><li><a>建议与反馈</a></li></b>-->
-    </ul>
+    <!--顶导航栏-->
+	<div class="nav nav-pills navbar-fixed-top" style="z-index:1;background-color:#222222">
+	  <div class="container-fluid" style="padding-left:5%;padding-right:5%">
+		<!-- Brand and toggle get grouped for better mobile display --> 
+		
+	    <a class="navbar-brand" style="color:aliceblue;font-size:40px;" href="{{route('homepage')}}">TAT</a>	
+			   
+	    <a class="signupbtn " style="position:relative;top:10px;float:right" href="{{route('signup')}}">注册</a>
+		  
+	  </div>
+	</div> 
     <br><br><br>
     
     <div id="header">
