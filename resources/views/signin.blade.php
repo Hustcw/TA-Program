@@ -40,15 +40,16 @@
       <form method="POST" action="{{route('signin')}}" role="form" style="margin:5%;">
           {{csrf_field()}}
 
-	         <div class="form-group">
-				 <label for="邮箱" style="font-size: 20px;">邮箱</label>
-				 <input  name="email" type="text" class="form-control" id="学号" placeholder="邮箱" value="{{old('email')}}">
-			 </div> 
+            <div class="form-group">
+                <label for="邮箱">邮箱</label>
+                <input  name="email" type="text" class="form-control" id="邮箱"
+                      placeholder="邮箱" maxlength="60" value="{{old('email')}}">
+            </div>
 
 			 <div class="form-group">
 				 <label for="密码" style="font-size: 20px;">密码</label>
 				 <input  name="password" type="password" class="form-control" id="密码"
-				 placeholder="请输入密码">
+				 placeholder="请输入密码" value="{{old('password')}}">
 			 </div>
              <div align="center">
              <label class="radio-inline">

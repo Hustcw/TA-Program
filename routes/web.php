@@ -18,6 +18,14 @@ Route::get('/signup','UsersController@create')->name('signup');//注册页面
 Route::post('/users/{users}/addcourse','CourseUsersController@store')->name('add.course');
 
 
+/*重置密码*/
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+Route::get('password/reset/wait','Auth\ForgotPasswordController@showWaitPage')->name('password.wait');
+
+
 /*
 Route::get('/users', 'UsersController@index')->name('users.index');//
 Route::get('/users/{users}', 'UsersController@show')->name('users.show');//个人主页
@@ -38,9 +46,19 @@ Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('conf
 
 Route::post('/courses/{users}', 'CoursesController@bindcourse')->name('courses.store');//提交课程信息处理
 Route::patch('/courses/{users}', 'CoursesController@update')->name('courses.update');//课程信息更新
+Route::get('/courses/{users}','CoursesController@show')->name('courses.show');//展示课程信息
+Route::delete('/courses/{users}','CourseUsersController@destroy')->name('course.delete');
 
 
 Route::get('/users/{users}/tasks','TasksController@show')->name('tasks.show');//显示任务发布页面
 Route::post('/tasks/{users}','TasksController@addtask')->name('tasks.store');//添加新的任务到数据库
 Route::get('users/{users}/courses/{courses}/tasks','TasksController@stshow')->name('tasks.stshow');//学生查询成绩页面
+
+Route::get('/users/{users}/grade','TasksController@grade')->name('tasks.grade');
+Route::get('/users/{users}/tasks/{task}/showgrade','TasksController@showgrade')->name('tasks.showgrade');
+Route::get('/getJson/tasks/{task}','TasksController@getJson')->name('tasks.getJson');
+Route::post('/editgrade/tasks/{task}','TasksController@editgrade')->name('tasks.editgrade');
+
+
+
 

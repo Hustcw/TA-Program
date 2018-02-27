@@ -114,21 +114,21 @@
 			   {{csrf_field()}}
 
 	         <div class="form-group">
-				 <label for="邮箱">邮箱</label>
-				 <input  name="email" type="text" class="form-control" id="邮箱" placeholder="email" value="{{old('email')}}">
+				 <label for="email">邮箱：</label>
+				 <input type="text" name="email" class="form-control" placeholder="请输入邮箱" value="{{ old('email') }}">
 			 </div> 
 	
 			 <div class="form-group">
 				 <label for="密码">密码</label>
 				 <input  name="password" type="password" class="form-control" id="密码"
-				 placeholder="password">
+				 placeholder="请输入密码">
 			 </div>
              <div align="center">
              <label class="radio-inline">
-                 <input type="radio" name="identity" id="optionsRadios3" value="1" checked>我是助教
+                 <input type="radio" name="identity" id="optionsRadios3" value="1" >我是助教
              </label>
              <label class="radio-inline">
-                 <input type="radio" name="identity" id="optionsRadios4"  value="0"> 我是学生
+                 <input type="radio" name="identity" id="optionsRadios4"  value="0" checked> 我是学生
              </label>
 		     </div>
 			 <br/>
@@ -140,7 +140,7 @@
 
 			 <div class="collapse in" id="signup-buttons">
 				<input name="remember" type="checkbox">记住我
-				<a class="pull-right" style="cursor: pointer">忘记密码？</a>
+				<a class="pull-right" style="cursor: pointer" href="{{route('password.request')}}">忘记密码？</a>
 			 </div>
 
 		 </form>    

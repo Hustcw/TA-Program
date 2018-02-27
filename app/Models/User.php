@@ -6,6 +6,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Course;
 use App\Models\Task;
+use App\Notifications\ResetPassword;
+use Illuminate\Support\Facades\DB;
+
 
 class User extends Authenticatable
 {
@@ -68,4 +71,39 @@ class User extends Authenticatable
         }
         $this->courses()->sync($course_ids,false);
     }
+
+    public function bindtask($task_ids)
+    {
+        if(!is_array($task_ids)){
+            $task_ids=compact('task_ids');
+        }
+        $this->tasks()->sync($task_ids,false);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
+
+    public function grade($task_id)
+    {
+        $data=DB::table('task_user')->where([['task_id', '=',$task_id],
+            ['user_id','=',$this->id]])->first();
+        if($data){
+            return $data->grade;
+        }
+        else{
+            return '还没有成绩哦';
+        }
+    }
+
+    public function deletecourse($course_ids)
+    {
+        if(!is_array($course_ids)){
+            $course_ids=compact('course_ids');
+        }
+        $this->courses()->detach($course_ids);
+    }
+
+
 }

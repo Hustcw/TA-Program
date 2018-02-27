@@ -119,14 +119,14 @@
 
 				 <div class="form-group">
 					 <label for="用户名">用户名</label>
-					 <input  name="username" type="text" class="form-control" id="用户名" placeholder="用户名" maxlength="16" minlength="6">
+					 <input  name="username" type="text" class="form-control" id="用户名" placeholder="用户名" maxlength="16" minlength="6" value="{{old('username')}}">
 				 </div> 
  
 
 				 <div class="form-group">
 					 <label for="邮箱">邮箱</label>
 					 <input  name="email" type="text" class="form-control" id="邮箱"
-					 placeholder="邮箱" maxlength="60">
+					 placeholder="邮箱" maxlength="60" value="{{old('email')}}">
 				 </div>
 
 				 <div class="form-group">

@@ -43,3 +43,14 @@
 	font-size:40px;
 	letter-spacing: 5px;
 }
+
+/*模态框*/
+#close
+{
+	color:#808080;
+}
+
+#close:hover
+{
+	color:#820406;
+}

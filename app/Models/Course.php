@@ -19,4 +19,13 @@ class Course extends Model
     {
         return $this->hasMany(Task::Class,'task_id','id');
     }
+
+    public function adduser($user_ids)
+    {
+        if(!is_array($user_ids)){
+            $user_ids=compact('$user_ids');
+        }
+        $this->users()->sync($user_ids,false);
+    }
+
 }

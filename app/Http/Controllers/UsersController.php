@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
-use Rainwsy\Aliyunmail\Send\Single;
 use Auth;
-use phpCAS;
+use App\Mail\ActivateEmail;
+
 
 class UsersController extends Controller
 {
@@ -46,7 +46,7 @@ class UsersController extends Controller
             'password' =>bcrypt($request->password)
         ]);
 
-        $this->sendEmailConfirmationTo($user);
+        Mail::to($user->email)->send(new ActivateEmail($user));
         session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
         return redirect('/');
     }
@@ -55,6 +55,7 @@ class UsersController extends Controller
     {
         $this->authorize('verify',$user);
         $courses=$user->courses()->paginate();
+
         if($user->is_ta && session('identity')) return view('users.tahome',compact('user'));
         return view('users.sthome',compact('user','courses'));
     }
@@ -96,19 +97,6 @@ class UsersController extends Controller
         return redirect()->back();
     }
 
-    protected function sendEmailConfirmationTo($user)
-    {
-        $view = 'emails.confirm';
-        $data = compact('user');
-        $from = '17718159699@163.com';
-        $name = 'USTC-TA';
-        $to = $user->email;
-        $subject = "USTC-TA——请确认你的邮箱。";
-
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-            $message->from($from, $name)->to($to)->subject($subject);
-        });
-    }
 
     public function confirmEmail($token)
     {
