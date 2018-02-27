@@ -25,8 +25,7 @@
 		<!-- Brand and toggle get grouped for better mobile display --> 
 		
 	    <a class="navbar-brand" style="color:aliceblue;font-size:40px;" href="{{route('homepage')}}">TAT</a>	
-			   
-	    <a class="signupbtn " style="position:relative;top:10px;float:right" href="{{route('signup')}}">注册</a>
+
 		  
 	  </div>
 	</div> 

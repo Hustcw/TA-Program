@@ -29,6 +29,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			@can('bind_course',$user)
 		  <ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
@@ -37,6 +38,7 @@
 			  </ul>
 			</li>
 		  </ul>
+			@endcan
 		  
 			
 		  <ul class="nav navbar-nav navbar-right">
