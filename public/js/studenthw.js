@@ -14,7 +14,7 @@ $("document").ready(function(){
 	var WidthPart=width.slice(0,width.length-2);
 	var WidthNum=parseInt(WidthPart);
 	$(".hm-btn-body").css("height",WidthNum+5+"px");
-	var btnPadding=WidthNum/6.5;
+	var btnPadding=WidthNum/2-24;
 	var bodyPadding=WidthNum/5;
 	$(".hm-btn-sign").css("padding-top",btnPadding+"px");
 	$(".hm-btn-body").css("padding-top",bodyPadding+"px");
@@ -25,7 +25,7 @@ $("document").ready(function(){
 		var WidthPart=Width.slice(0,Width.length-2);
 		var WidthNum=parseInt(WidthPart);
 		$(".hm-btn-body").css("height",WidthNum+5+"px");
-		var btnPadding=WidthNum/6.5;
+		var btnPadding=WidthNum/2-24;
 		var bodyPadding=WidthNum/5;
 		$(".hm-btn-sign").css("padding-top",btnPadding+"px");
 		$(".hm-btn-body").css("padding-top",bodyPadding+"px");
