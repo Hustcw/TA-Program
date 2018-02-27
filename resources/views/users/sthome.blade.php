@@ -30,10 +30,10 @@
 	</style>
     <link rel="stylesheet" type="text/css" href="/css/student.css" />
     <link rel="stylesheet" type="text/css" href="/css/chinese_font.css" />
-	 <script src="/js/student.js" type="text/javascript"></script>
 	  <script src="/bootstrap/js/jquery.min.js"></script>
 	  <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
 	  <script type="text/javascript" src="/js/jquery.beattext.js"></script>
+	  <script src="/js/student.js" type="text/javascript"></script>
       <script type="text/javascript" src="/js/easying.js"></script>
 	  <script type="text/javascript">
 			$(document).ready(function() {
@@ -77,7 +77,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-			<a class="navbar-brand" style="color:aliceblue;" href="#">TAT</a>
+			<a class="navbar-brand" style="color:aliceblue;" href="{{route('users.show',Auth::user()->id)}}">TAT</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,11 +88,11 @@
 			  <ul class="dropdown-menu">
 				  @foreach($courses as $course)
 					  <li>
-						  <a href="#">{{$course->course_name}}</a>
+						  <a href="{{route('tasks.stshow',['user'=>Auth::user(),'course'=>$course])}}">{{$course->course_name}}</a>
 					  </li>
 				  @endforeach
 				<li>
-					<a href="#" data-toggle="modal" data-target="#myModal">
+					<a href="{{route('courses.show',['user'=>Auth::user()])}}">
 					<span class="glyphicon glyphicon-plus"></span>
 					&nbsp;添加课程</a>
 				</li>
@@ -105,7 +105,6 @@
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
 			  <ul class="dropdown-menu">
 				  <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
-				  <li><a href="#">设置提醒方式</a></li>
 				  <li>
 					  <form action="{{ route('signout') }}" method="POST">
 						  {{ csrf_field() }}
@@ -120,41 +119,7 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
    
-  <!--模态框-->         
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">添加课程</h4>
-            </div>
-            <div class="modal-body row" style="padding-left:10%; padding-right:10%;">
-               <form  action="{{route('add.course',['user'=>Auth::user()])}}" method="POST" role="form">
-				   {{csrf_field()}}
 
-                <div class="input-group">
-                <span class="input-group-addon">用户名</span>
-                <input type="text" class="form-control" value="{{$user->username}}" disabled>
-                </div>
-                <br>
-                <div class="input-group">
-                <span class="input-group-addon">姓名</span>
-                <input type="text" class="form-control" value="{{$user->realname}}" disabled>
-                </div>
-                <br>
-                <div class="input-group">
-                <span class="input-group-addon">添加课程号</span>
-                <input name="course_id" type="text" class="form-control" placeholder="课程号">
-				</div>
-                <br>
-				   <div class="modal-footer">
-					   <button type="submit" class="btn btn-primary btn-block" id="submit">提交</button>
-				   </div>
-              </form>
-			</div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
                     
    	<!--主体-->
    		@include('share._messages')
@@ -186,9 +151,9 @@
 							  </li>
 						  @endforeach
 						<li>
-							<a href="#" data-toggle="modal" data-target="#myModal">
-							<span class="glyphicon glyphicon-plus"></span>
-							&nbsp;添加课程</a>
+							<a href="{{route('courses.show',['user'=>Auth::user()])}}">
+								<span class="glyphicon glyphicon-plus"></span>
+								&nbsp;添加课程</a>
 						</li>
 					  </ul>
 					</div>

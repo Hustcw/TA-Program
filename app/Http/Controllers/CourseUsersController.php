@@ -23,7 +23,7 @@ class CourseUsersController extends Controller
             }
         }
 
-        session()->flash('success','课程添加成功');
+        session()->flash('info','课程添加成功');
         return redirect()->back()->with(['user'=>$user]);
     }
 
@@ -31,7 +31,7 @@ class CourseUsersController extends Controller
     {
         Auth::user()->deletecourse($request->course_id);
 
-        session()->flash('success', '课程删除成功');
+        session()->flash('info', '课程删除成功');
         return redirect()->back()->with(['user' => $user]);
     }
 }

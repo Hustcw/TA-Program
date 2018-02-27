@@ -7,6 +7,7 @@
     <link href="/css/chinese_font.css" rel="stylesheet"/>
     <link href="/bootstrap-table/src/bootstrap-table.css" rel="stylesheet"/>
     <link href="/css/course.css" rel="stylesheet"/>
+
     <script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-table/dist/bootstrap-table.js" type="text/javascript"></script>
@@ -56,7 +57,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="color:aliceblue;" href="#">TAT</a>
+            <a class="navbar-brand" style="color:aliceblue;" href="{{route('users.show',Auth::user()->id)}}">TAT</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -98,11 +99,11 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-<br/><br/><br/><br/>
-
 @include('share._messages')
 @include('share._errors')
+<br/><br/><br/><br/>
+
+
 
 <!--表格-->
 <form action="" method="" >
@@ -119,7 +120,7 @@
                             </h4>
                         </div>
 
-                        <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
 
                                 <table id="Chosen" z-index="-1" data-toggle="table" dataclasses="table" data-undefined-text="-" data-striped="true"
@@ -142,7 +143,7 @@
                                         <td>{{$course->course_name}}</td>
                                         <td>{{$course->teacher}}</td>
 
-                                        <td><form action="{{route('course.delete',['users'=>Auth::user()])}}" method="post">
+                                        <td><form action="{{route('course.delete',['users'=>Auth::user()])}}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                                 <input type="hidden" value="{{$course->id}}" name="course_id">
@@ -150,6 +151,7 @@
                                         </form></td>
                                     </tr>
                                     @endforeach
+
                                     </tbody>
 
                                 </table>
