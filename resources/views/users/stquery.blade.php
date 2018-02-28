@@ -34,22 +34,24 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">发布任务</a></li>
-                        <li><a href="#">反馈</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="{{route('users.show',Auth::user()->id)}}" role="button">个人中心</a></li>
+                        <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
+                        <li>
+                            <form action="{{ route('signout') }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button class="btn btn-block btn-danger" type="submit" name="button">退出登陆</button>
+                            </form>
+                        </li>
                     </ul>
                 </li>
-            </ul>
 
 
-            <ul class="nav navbar-nav navbar-right">
-                <li >
-                    <a href="{{route('users.show',$user->id)}}" role="button">个人中心</a>
-                </li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -64,11 +66,17 @@
             <ul class="nav nav-tabs nav-stacked"   data-spy="affix">
                 <li class="active"><a href="#task">我的任务</a></li>
                 <li><a href="#grade">我的成绩</a></li>
-                <li><a href="#feedback">我的反馈</a></li>
             </ul>
         </div>
 
+
+
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+            <div align="center" style="position:relative;top:100px">
+                <h1>{{$course->course_name}}</h1>
+            </div>
+
             <div style="height:200px" id="task" ></div>
             <div class="title" >
                 <span>我的任务</span>
@@ -76,6 +84,8 @@
             <div class="container-fluid" style="padding-top:50px;">
                 <div class="row panel-group" id="accordion">
                     <div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-6 col-xs-12">
+
+
 
                         @foreach($tasks as $task)
                             @if(($loop->index+1) % 2)
@@ -187,11 +197,6 @@
 
 
             <div style="height:200px" id="feedback" ></div>
-            <div class="title" >
-                <span>我的反馈</span>
-
-
-            </div>
         </div>
     </div>
 </div>

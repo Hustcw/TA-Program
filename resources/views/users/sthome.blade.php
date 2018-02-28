@@ -84,7 +84,7 @@
 		<div class="collapse navbar-collapse" id="TAstudent">
 		  <ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">你的课程 <span class="caret"></span></a>
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的课程 <span class="caret"></span></a>
 			  <ul class="dropdown-menu">
 				  @foreach($courses as $course)
 					  <li>

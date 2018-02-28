@@ -47,15 +47,14 @@
 	<div class="container" style="position:relative;top:70px">
 		<!--未登记-->
 		<div class="row">
+			<div class="title" >
+				<span>全部任务</span>
+			</div>
+			<br><br>
 			<div class="col-lg-5 col-md-5 col-sm-6,col-xs-12">
-				<div class="title" >
-				  <span>未登记</span>
-				</div>				
-				<br/>
-				<div class="sm-title" >
-				  <span>未截止</span>
-				</div>
-				
+
+
+
 		          <!--添加新的作业-->
 				<div class="container-fluid">
 			        <div class="hm-btn row" data-toggle="modal" data-target="#AddNewHW">
@@ -76,54 +75,84 @@
 				
 		    	<!--已有的未登记作业-->
 				<div class="container-fluid panel-group" id="accordion">
-					@include('tasks.ta_show_content')
+					@foreach($tasks as $task)
+						@if(($loop->index)%2)
+							<div class="hm-btn row" >
+								<div >
+									<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
+										<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
+											<span class="glyphicon glyphicon-paperclip"></span>
+										</div>
+									</div>
+
+									<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
+										<div class="row">
+											<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+												<span  style="font-size:18px;display:block">{{$task->title}}</span>
+												<span  style="font-size:10px;display:block">截止时间：{{$task->deadline}}</span>
+											</div>
+											<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+												<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$task->id}}">
+													<span class="glyphicon glyphicon-list"></span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="collapse{{$task->id}}" class="panel-collapse collapse">
+								<div class="panel-body">
+									{{$task->content}}
+								</div>
+								<a href="{{route('tasks.showgrade',['user'=>Auth::user(),'$task'=>$task])}}"><button class="btn btn-primary"  style="display:block" href="">登记成绩</button></a>
+								<br/>
+							</div>
+						@endif
+					@endforeach
 		    	</div>
 
 			</div>
-		
-        
+
+
 		<!--已登记-->
 			<div class="col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-6,col-xs-12">
-				<div class="title" >
-				  <span>已登记</span>
-				</div>				
-				<br/>
-				
-		    	<!--已有的未登记作业-->
 				<div class="container-fluid panel-group" id="accordion2">
-					 <div class="hm-btn row" >
-						<div>
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white">
-								  <span class="	glyphicon glyphicon-wrench"></span>
-								</div> 
+					@foreach($tasks as $task)
+						@if(($loop->index+1)%2)
+						<div class="hm-btn row" >
+							<div >
+								<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<div class="hm-btn-sign-ptn" style="font-size:35px;color:white;vertical-align:center;">
+										<span class="glyphicon glyphicon-paperclip"></span>
+									</div>
+								</div>
+
+								<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
+									<div class="row">
+										<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+											<span  style="font-size:18px;display:block">{{$task->title}}</span>
+											<span  style="font-size:10px;display:block">截止时间：{{$task->deadline}}</span>
+										</div>
+										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+											<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$task->id}}">
+												<span class="glyphicon glyphicon-list"></span>
+											</a>
+										</div>
+									</div>
+								</div>
 							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-										<span  style="font-size:20px;display:block">第二次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" align="center" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
 						</div>
-			    	</div>
-					<div id="collapseSix" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容							
+						<div id="collapse{{$task->id}}" class="panel-collapse collapse">
+							<div class="panel-body">
+								{{$task->content}}
+							</div>
+							<a href="{{route('tasks.showgrade',['user'=>Auth::user(),'$task'=>$task])}}"><button class="btn btn-primary"  style="display:block" href="">登记成绩</button></a>
+							<br/>
 						</div>
-						<button class="btn btn-primary" href="">登记成绩</button>
-                        <button class="btn btn-info" href="">登记完成</button>
-						<br/>
-                   </div>
+						@endif
+					@endforeach
 		    	</div>
-			
+
 			</div>
 		</div>
 	</div>

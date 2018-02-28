@@ -67,6 +67,7 @@
 				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
 				  <ul class="dropdown-menu">
 					  <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
+					  <li><a href="{{route('tasks.show',Auth::user()->id)}}">发布任务</a></li>
 					  <li>
 						  <form action="{{ route('signout') }}" method="POST">
 							  {{ csrf_field() }}
@@ -94,7 +95,7 @@
 				  <div style="color:rgba(153,153,153,1.00);position:relative;top:-100px">
 					<h1>欢迎登陆助教端</h1>
 					<p>点击跳转至跳转到您想去的页面</p>
-					<p>点击导航栏右侧"个人中心"按钮修改、完善、绑定个人信息</p>
+					<p>点击导航栏右侧按钮修改、完善、绑定个人信息</p>
 				  </div>
 			    </div>
 			    <br/>

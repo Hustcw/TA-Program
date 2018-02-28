@@ -11,6 +11,7 @@
     <link href="/css/chinese_font.css" rel="stylesheet"/>
     <link href="/css/assscore.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/font/iconfont.css"/>
+    <link href="/css/asshm.css" rel="stylesheet"/>
     <script src="/bootstrap/js/jquery-1.11.2.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-table/dist/bootstrap-table.js" type="text/javascript"></script>
@@ -21,7 +22,6 @@
     <script src="/js/nav.js"></script>
     <script src="/bootstrap-table/dist/extensions/export/bootstrap-table-export.js" type="text/javascript"></script>
     <script src="/tableExport/tableExport.js" type="text/javascript"></script>
-    {{ method_field('PUT') }}
    <script type="text/javascript">
         $(document).ready(function(){
             $('#StuTable').bootstrapTable({
@@ -114,9 +114,6 @@
         </div>
     </div>
     <ul>
-		<li class="nav-item1" style="height:45px">
-			<a href="javascript:;" data-toggle="modal" data-target="#AddNewGrade"><em class="my-icon nav-icon1 icon_3"></em><span>添加新成绩</span></a>
-        </li>
         <li class="nav-item1"><a href="javascript:;"><em class="my-icon nav-icon1 icon_1"></em><span>作业成绩</span><em
                         class="my-icon nav-more1"></em></a>
             <ul>
@@ -125,16 +122,6 @@
                 @endforeach
             </ul>
         </li>
-        <li class="nav-item1">
-            <a href="javascript:;"><i class="my-icon nav-icon1 icon_2"></i><span>考试成绩</span><i
-                        class="my-icon nav-more1"></i></a>
-            <ul>
-                <li><a href="javascript:;"><span>考试1</span></a></li>
-                <li><a href="javascript:;"><span>考试2</span></a></li>
-                <li><a href="javascript:;"><span>考试3</span></a></li>
-            </ul>
-        </li>
-
     </ul>
 </div>
 
@@ -149,28 +136,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="color:aliceblue;font-size:40px;padding-top:20px;" href="#">TAT</a>
+            <a class="navbar-brand" style="color:aliceblue;" href="{{route('users.show',Auth::user()->id)}}">TAT</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">发布任务</a></li>
-                        <li><a href="#">反馈</a></li>
-                        <li><a href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
+                        <li><a href="{{route('users.show',Auth::user()->id)}}">个人主页</a> </li>
+                        <li><a href="{{route('tasks.show',Auth::user()->id)}}">发布任务</a></li>
                         <li>
                             <form action="{{ route('signout') }}" method="POST">
                                 {{ csrf_field() }}
@@ -188,7 +166,13 @@
 
 <br/><br/><br/><br/>
 
+
+
 <div class="container" z-index="-1">
+    <div class="title" >
+        <span>{{$task->title}}</span>
+    </div>
+    <br><br>
     <!--表格-->
     <div class="row">
         <div class="col-lg-offset-1 col-lg-11	col-md-offset-1 col-md-11 col-sm-offset-1 col-sm-11 col-xs-offset-2 col-xs-10">

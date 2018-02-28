@@ -27,7 +27,7 @@ class TasksController extends Controller
     public function stshow(User $user, Course $course)
     {
         $tasks = Task::where('course_id', $course->course_id)->get();
-        return view('users.stquery', compact('user', 'tasks'));
+        return view('users.stquery', compact('user', 'tasks','course'));
     }
 
     public function addtask(User $user, Request $request)

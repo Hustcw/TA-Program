@@ -59,16 +59,6 @@
                 @endforeach
             </ul>
         </li>
-        <li class="nav-item1">
-            <a href="javascript:;"><i class="my-icon nav-icon1 icon_2"></i><span>考试成绩</span><i
-                        class="my-icon nav-more1"></i></a>
-            <ul>
-                <li><a href="javascript:;"><span>考试1</span></a></li>
-                <li><a href="javascript:;"><span>考试2</span></a></li>
-                <li><a href="javascript:;"><span>考试3</span></a></li>
-            </ul>
-        </li>
-
     </ul>
 </div>
 
@@ -83,28 +73,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" style="color:aliceblue;font-size:40px;padding-top:20px;" href="#">TAT</a>
+            <a class="navbar-brand" style="color:aliceblue;" href="{{route('users.show',Auth::user()->id)}}">TAT</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">发布任务</a></li>
-                        <li><a href="#">反馈</a></li>
-                        <li><a href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$user->username}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('users.edit',Auth::user()->id)}}">编辑信息</a></li>
+                        <li><a href="{{route('users.show',Auth::user()->id)}}">个人主页</a> </li>
+                        <li><a href="{{route('tasks.show',Auth::user()->id)}}">发布任务</a></li>
                         <li>
                             <form action="{{ route('signout') }}" method="POST">
                                 {{ csrf_field() }}
