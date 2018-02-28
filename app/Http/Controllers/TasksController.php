@@ -89,9 +89,11 @@ class TasksController extends Controller
         $Stunumber = $request->input('StuNumber');
         $Stuscore = $request->input('StuScore');
         $user = User::where('student_id', $Stunumber)->first();
-        DB::table("task_user")->where([
+        $data=DB::table("task_user")->where([
             ['user_id', '=', $user->id],
             ['task_id', '=', $task->id]
         ])->update(['grade' => $Stuscore]);
+        $data->grade=$Stuscore;
+        $data->save();
     }
 }

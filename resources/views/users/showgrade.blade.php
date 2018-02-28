@@ -43,7 +43,7 @@
                 url: "{{route('tasks.getJson',$task->id)}}",
                 onEditableSave:function (field,row,oldvalue,$el) {
                     $.ajax({
-                        method: "POST",
+                        method: "post",
                         url: "{{route("tasks.editgrade",$task->id)}}",
                         data: row,
                         dataType: 'json',
