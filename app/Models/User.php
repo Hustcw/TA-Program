@@ -104,6 +104,4 @@ class User extends Authenticatable
         }
         $this->courses()->detach($course_ids);
     }
-
-
 }

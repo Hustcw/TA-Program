@@ -28,17 +28,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav navbar-right">
-			<li class="dropdown">
-			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">跳转至 <span class="caret"></span></a>
-			  <ul class="dropdown-menu">
-				<li><a href="#">发布任务</a></li>
-				<li><a href="#">反馈</a></li>
-				<li><a href="#">Something else here</a></li>
-			  </ul>
-			</li>
-		  </ul>
-		  
+
 			
 		  <ul class="nav navbar-nav navbar-right">
 			 <li >
@@ -89,44 +79,6 @@
 					@include('tasks.ta_show_content')
 		    	</div>
 
-
-
-				<div class="sm-title" >
-				  <span>已截止</span>
-				</div>
-				
-				<div class="container-fluid panel-group" id="accordion1">
-					 <div class="hm-btn row" >
-						<div>
-							<div class="hm-btn-sign col-lg-2 col-md-2 col-sm-2 col-xs-2" >
-								<div class="hm-btn-sign-ptn" style="font-size:35px;color:white">
-								  <span class="	glyphicon glyphicon-wrench"></span>
-								</div> 
-							</div>
-							
-							<div class="hm-btn-body col-lg-10 col-md-10 col-sm-10 col-xs-10" >
-								<div class="row">
-									<div class="hm-btn-hover1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-										<span  style="font-size:18px;display:block">第二次作业</span>
-								        <span  style="font-size:10px;display:block">截止日期：</span>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-										<a class="hm-btn-hover2" style="position:relative;top:10px;" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">
-									     <span class="glyphicon glyphicon-list"></span>
-								        </a>
-									</div>
-								</div>   
-   						   </div>
-			        	</div>
-			         </div>
-					 <div id="collapseFour" class="panel-collapse collapse">
-						<div class="panel-body">
-							作业内容							
-						</div>
-						<button class="btn btn-primary" href="">登记成绩</button>
-						<br/>
-                       </div>
-		        </div>
 			</div>
 		
         
@@ -167,6 +119,7 @@
 							作业内容							
 						</div>
 						<button class="btn btn-primary" href="">登记成绩</button>
+                        <button class="btn btn-info" href="">登记完成</button>
 						<br/>
                    </div>
 		    	</div>

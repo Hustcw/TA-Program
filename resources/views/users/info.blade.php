@@ -138,7 +138,6 @@
 		<br/>
 
 		@can('bind_course',$user)
-            @if(!$user->ta_course)
 		<div class="row">
 			<div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
 			  <div class="title" >
@@ -149,18 +148,18 @@
 
 					<div class="input-group">
 						<span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
-						<input name="course_id" type="text" class="form-control"  value="{{$user->ta_course}}">
+						<input name="course_id" type="text" class="form-control"  value="{{$user->ta_course}}" disabled>
 					</div>
 					<br>
 					<div class="input-group">
 
 						<span class="input-group-addon">课程名称</span>
-						<input name="course_name" type="text" class="form-control"  value="{{$user->assistant_course()->course_name}}">
+						<input name="course_name" type="text" class="form-control"  value="{{$user->assistant_course()->course_name}}" disabled>
 					</div>
 					<br>
 					<div class="input-group">
 						<span class="input-group-addon">任课教师</span>
-						<input name="teacher" type="text" class="form-control"  value="{{$user->assistant_course()->teacher}}">
+						<input name="teacher" type="text" class="form-control"  value="{{$user->assistant_course()->teacher}}" disabled>
 					</div>
 					<br>
 					<div>
@@ -168,42 +167,9 @@
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选取助教课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 </button></a>
 					</div>
-		</div>
-		  </div>
+			</div>
+		  	</div>
 	    </div>
-                @else
-                <div class="row">
-                    <div class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-                        <div class="title" >
-                            <span>修改课堂信息</span>
-                        </div>
-                        <br/><br/>
-                        <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
-                                <div class="input-group">
-                                    <span class="input-group-addon">&nbsp;&nbsp;课堂号&nbsp;&nbsp;</span>
-                                    <input name="course_id" type="text" class="form-control" value="{{$user->ta_course}}" disabled >
-                                </div>
-                                <br>
-                                <div class="input-group">
-
-                                    <span class="input-group-addon">课程名称</span>
-                                    <input name="course_name" type="text" class="form-control" value="{{$user->assistant_course()->course_name}}"disabled >
-                                </div>
-                                <br>
-                                <div class="input-group">
-                                    <span class="input-group-addon">任课教师</span>
-                                    <input name="teacher" type="text" class="form-control"  value="{{$user->assistant_course()->teacher}}"disabled >
-                                </div>
-                                <br>
-                                <div>
-                                    <a href="{{route('course.select',Auth::user()->id)}}"> <button class="btn btn-primary" type="submit">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交课堂信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </button></a>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
 		@endcan
 		<!-- footer -->
 		
