@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="_token" content="{{ csrf_token() }}"/>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TA</title>
@@ -21,6 +20,7 @@
     <script src="/js/nav.js"></script>
     <script src="/bootstrap-table/dist/extensions/export/bootstrap-table-export.js" type="text/javascript"></script>
     <script src="/tableExport/tableExport.js" type="text/javascript"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
    <script type="text/javascript">
         $(document).ready(function(){
             $('#StuTable').bootstrapTable({
@@ -48,7 +48,7 @@
                         data: row,
                         dataType: 'json',
                         headers: {
-                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
                         success: function (data, status) {
 

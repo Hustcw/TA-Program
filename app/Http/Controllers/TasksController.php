@@ -92,8 +92,6 @@ class TasksController extends Controller
         $data=DB::table("task_user")->where([
             ['user_id', '=', $user->id],
             ['task_id', '=', $task->id]
-        ])->get();
-        $data->grade=$Stuscore;
-        $data->save();
+        ])->update(['grade' => $Stuscore]);
     }
 }
