@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TA</title>
@@ -20,7 +21,7 @@
     <script src="/js/nav.js"></script>
     <script src="/bootstrap-table/dist/extensions/export/bootstrap-table-export.js" type="text/javascript"></script>
     <script src="/tableExport/tableExport.js" type="text/javascript"></script>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{ method_field('PUT') }}
    <script type="text/javascript">
         $(document).ready(function(){
             $('#StuTable').bootstrapTable({
@@ -43,7 +44,7 @@
                 url: "{{route('tasks.getJson',$task->id)}}",
                 onEditableSave:function (field,row,oldvalue,$el) {
                     $.ajax({
-                        method: "post",
+                        method: "POST",
                         url: "{{route("tasks.editgrade",$task->id)}}",
                         data: row,
                         dataType: 'json',

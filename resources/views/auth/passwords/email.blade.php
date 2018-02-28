@@ -82,7 +82,7 @@
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
                     <div class="form-group">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                        <input id="email" type="email" class="form-control" name="email" placeholder="请输入您的邮箱账号" value="{{ old('email') }}" required>
 
                         @if ($errors->has('email'))
                             <span class="help-block">

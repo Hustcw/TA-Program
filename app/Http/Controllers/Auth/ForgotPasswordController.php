@@ -34,4 +34,9 @@ class ForgotPasswordController extends Controller
     {
         return view('auth.passwords.wait');
     }
+
+    public function showfinal()
+    {
+        return view('auth.passwords.final');
+    }
 }
