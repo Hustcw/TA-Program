@@ -93,7 +93,5 @@ class TasksController extends Controller
             ['user_id', '=', $user->id],
             ['task_id', '=', $task->id]
         ])->update(['grade' => $Stuscore]);
-        $data->grade=$Stuscore;
-        $data->save();
     }
 }
