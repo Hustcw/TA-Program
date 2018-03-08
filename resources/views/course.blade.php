@@ -68,7 +68,7 @@
                     <ul class="dropdown-menu">
                         @foreach($courses as $course)
                             <li>
-                                <a href="#">{{$course->course_name}}</a>
+                                <a href="{{route('tasks.stshow',['user'=>Auth::user(),'course'=>$course])}}">{{$course->course_name}}</a>
                             </li>
                         @endforeach
                         <li>

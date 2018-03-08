@@ -73,6 +73,8 @@ class UsersController extends Controller
             'username' => 'nullable|max:50',
             'password' => 'nullable|confirmed|min:6',
             'phonenumber'=>'nullable|max:15',
+            'realname'=>'nullable|max:10',
+            'student_id'=>'nullable|max:10',
         ]);
 
         $this->authorize('verify',$user);

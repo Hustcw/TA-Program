@@ -29,7 +29,7 @@
         {
             if(c===0)
             {
-                window.location.href="https://ustcta.com";
+                window.location.href="http://ta.test";
             }
             document.getElementById("CountNum").innerHTML=c+"";
             c=c-1;
