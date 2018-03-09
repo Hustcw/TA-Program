@@ -176,7 +176,7 @@
     <!--表格-->
     <div class="row">
         <div class="col-lg-offset-1 col-lg-11	col-md-offset-1 col-md-11 col-sm-offset-1 col-sm-11 col-xs-offset-2 col-xs-10">
-            <table id="StuTable" z-index="-1" dataclasses="table" data-undefined-text="-" data-striped="true"
+            <table id="StuTable" z-index="-1" dataclasses="table" data-undefined-text="-" data-striped="true" data-sort-name="StuNumber"
                    data-sort-order="asc" data-sort-stable="true" data-pagination="true" data-page-number="1"
                    data-page-size="10" data-search="true"></table>
         </div>
